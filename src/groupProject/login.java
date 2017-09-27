@@ -16,7 +16,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
-public class login {
+public class login extends JFrame{
 
 	private JFrame frame;
 
@@ -28,7 +28,6 @@ public class login {
 			public void run() {
 				try {
 					login window = new login();
-					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,9 +43,10 @@ public class login {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 575, 429);
-		frame.setForeground(new Color(157, 215, 242));
+		frame.setBackground(new Color(157, 215, 242));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setVisible(true);
 		
 	}
 	
@@ -76,11 +76,12 @@ public class login {
 			public void actionPerformed(ActionEvent e)
 			{
 				//creates menu window sets it to visible and sets the location and size of the menu window
-				newUser menu1 = new newUser();
-				menu1.setVisible(true);
-				menu1.setLocation(400, 250);
-				menu1.setSize(673, 705);
-			}
+				frame.dispose();
+				new New_User();
+				
+				
+				
+		}
 		});
 		frame.getContentPane().add(btnNewUser);
 	}
@@ -94,11 +95,9 @@ public class login {
 		btnReturningUser.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-				//creates menu window sets it to visible and sets the location and size of the menu window
-				signIn signInScreen = new signIn();
-				signInScreen.setVisible(true);
-				signInScreen.setLocation(400, 250);
-				signInScreen.setSize(673, 705);
+				frame.dispose();
+				new Returning_User();
+				
 			}
 		});
 		frame.getContentPane().add(btnReturningUser);
