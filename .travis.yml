@@ -1,5 +1,2 @@
 language: java
 script: mvn clean compile -DskiptTests
-notifications:
-  email:
-	james.rodgers0047@gmail.com
