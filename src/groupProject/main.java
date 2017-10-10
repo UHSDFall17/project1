@@ -8,6 +8,9 @@ public class main {
 	public static String username="", password="";
 	public static String[] usersTask;
 	public static boolean finished = false;
+	static newUser newUserVariable = new newUser();
+	
+	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
@@ -53,7 +56,7 @@ public class main {
 		password = scanner.nextLine().trim();
 		returningUserVariable.setUsername(username);
 		returningUserVariable.setPassword(password);
-		returningUserVariable.loadFile();
+		com.group1.project1.anyDont.returningUser.loadFile();
 		while(!returningUserVariable.CredentialsConfirmed()&& !username.equals("signup"))
 		{
 			System.out.println("username and/or password do not match records on file.\ntry again or type signup\nusername: ");
@@ -73,10 +76,11 @@ public class main {
 		}
 	}
 	
+	
+	
 	static void createNewUser()
 	{
 		Scanner scanner = new Scanner(System.in);
-		newUser newUserVariable = new newUser();
 		System.out.println("Enter desired username: ");
 		username = scanner.nextLine().trim();
 		newUserVariable.setUsername(username);
@@ -86,8 +90,7 @@ public class main {
 		
 		while(!newUserVariable.uniqueUsernames())
 		{
-			System.out.println("Username is arleady taken, please select a new username");
-			System.out.println("Enter desired username: ");
+			System.out.println("Username is arleady taken, select a new username\nEnter desired username: ");
 			username = scanner.nextLine().trim();
 			newUserVariable.setUsername(username);
 		}

@@ -35,8 +35,9 @@ public class newUser {
         }
 	}
 	
-	public void createUserFile()
+	public boolean createUserFile()
 	{
+		boolean result = false;
 		String newFile = this.username + ".txt"; 
 		FileWriter fw = null;
 		
@@ -44,9 +45,12 @@ public class newUser {
 			File file = new File(newFile);
 			fw = new FileWriter(file, true);
             fw.close();
+            result = true;
+            
         } catch (IOException ex) {
         	ex.printStackTrace();
         }
+		return result;
 	}
 	
 	
@@ -156,8 +160,6 @@ public class newUser {
 				checkForUsername.close();
 				return false;
 			}
-			checkForUsername.next();
-			
 		}
 		//closes file
 		checkForUsername.close();

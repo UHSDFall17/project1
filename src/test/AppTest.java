@@ -26,7 +26,6 @@ public class AppTest extends TestCase {
 			newUserVariable.createUserFile();
 			newUserVariable.amendCredentials();
 		}
-		
 	}
 	
 	@Test
@@ -50,13 +49,56 @@ public class AppTest extends TestCase {
 		newUserVariable.setPassword("testing");
 		boolean expectation = false;
 		boolean result = newUserVariable.uniqueUsernames();
-		if(result)
-		{
-			newUserVariable.createUserFile();
-			newUserVariable.amendCredentials();
-		}
 		assertEquals(expectation, result);
-		
 	}
+	
+//	@Test
+//	public void test_new_user_tasklist_created_after_signup()
+//	{
+//		boolean userFileCreated = false;
+//		boolean expectation = true;
+//		//sets up the file system for the second test
+//		newUser newUserVariable = new newUser();
+//		newUserVariable.setUsername("testing1");
+//		newUserVariable.setPassword("testing1");
+//		boolean result = newUserVariable.uniqueUsernames();
+//		if(result)
+//		{
+//			newUserVariable.createUserFile();
+//			newUserVariable.amendCredentials();
+//			userFileCreated = newUserVariable.createUserFile();
+//		}
+//		assertEquals(expectation, userFileCreated);
+//	}
+	
+	@Test
+	public void test_Returning_User_Signin()
+	{
+		returningUser returningUserVariable = new returningUser();
+		returningUserVariable.setUsername("testing");
+		returningUserVariable.setPassword("testing");
+		returningUser.loadFile();
+		boolean expectation = true;
+		boolean result = returningUserVariable.CredentialsConfirmed();
+		assertEquals(expectation, result);
+	}
+	
+//	@Test
+//	public void test_Returning_User_File_Downloaded()
+//	{
+//		String[] usersTask = null;
+//		returningUser returningUserVariable = new returningUser();
+//		returningUserVariable.setUsername("testing");
+//		returningUserVariable.setPassword("testing");
+//		returningUser.loadFile();
+//		boolean result = returningUserVariable.CredentialsConfirmed();
+//		if(result)
+//		{
+//			usersTask = returningUserVariable.getUsersDate("testing.txt");
+//		}
+//		assertNotNull(usersTask);
+//	}
+//	
+
 	
 }
