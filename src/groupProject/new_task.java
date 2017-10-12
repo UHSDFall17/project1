@@ -44,7 +44,7 @@ public class new_task {
 			}
 		}else if(month == 4 || month == 6 || month == 9 || month == 11)
 		{
-			System.out.print("Day(1-30: ");
+			System.out.print("Day(1-30): ");
 			day = sc.nextInt();
 			while(day < 1 || day > 30)
 			{
@@ -53,7 +53,7 @@ public class new_task {
 					day = sc.nextInt();
 			}
 		}else	{
-			System.out.print("Day(1-31: ");
+			System.out.print("Day(1-31): ");
 			day = sc.nextInt();
 			while(day < 1 || day > 31)
 			{
