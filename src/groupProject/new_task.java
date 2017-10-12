@@ -32,7 +32,7 @@ public class new_task {
 	public int getDay(int month)
 	{
 		int day;
-		if(month = 2)
+		if(month == 2)
 		{
 			System.out.print("Day(1-28): ");
 			day = sc.nextInt();
@@ -42,20 +42,20 @@ public class new_task {
 					System.out.print("Day(1-28): ");
 					day = sc.nextInt();
 			}
-		}else if(month = (1||3||5||7||8||10||12))
+		}else if(month == 4 || month == 6 || month == 9 || month == 11)
 		{
-			System.out.print("Day(1-31: ");
+			System.out.print("Day(1-30: ");
 			day = sc.nextInt();
-			while(day < 1 || day > 31
+			while(day < 1 || day > 30)
 			{
 					System.err.println("Input day is out of range");
 					System.out.print("Day(1-31): ");
 					day = sc.nextInt();
 			}
 		}else	{
-			System.out.print("Day(1-30: ");
+			System.out.print("Day(1-31: ");
 			day = sc.nextInt();
-			while(day < 1 || day > 30)
+			while(day < 1 || day > 31)
 			{
 					System.err.println("Input day is out of range");
 					System.out.print("Day(1-30): ");
