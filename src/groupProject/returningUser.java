@@ -63,7 +63,6 @@ public class returningUser {
 			//test if the first letting in the line is M if so count++
 			count++;
 			String temp = profileInformation.next();
-			System.out.println(temp);
 		}
 		
 		usersTask = new String[count];
@@ -85,11 +84,11 @@ public class returningUser {
 			
 		}
 		
-		for(int i= 0; i < usersTask.length; i++)
-		{
-			System.out.println(usersTask[i]);
-		}
-		
+//		for(int i= 0; i < usersTask.length; i++)
+//		{
+//			System.out.println(usersTask[i]);
+//		}
+//		
 		//closes file
 		profileInformation.close();
 		

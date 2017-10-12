@@ -9,7 +9,7 @@ public class main {
 	public static String[] usersTask;
 	public static boolean finished = false;
 	static newUser newUserVariable = new newUser();
-	
+	static homePage homePageVariable = new homePage();
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -35,15 +35,9 @@ public class main {
 					finished = true;
 				}
 			}
+			homePage();
 		}
 		
-		System.out.println("Inside Main");
-		
-		for(int i= 0; i < usersTask.length; i++)
-		{
-			System.out.println(usersTask[i]);
-		}
-	
 	
 	}
 	
@@ -103,10 +97,11 @@ public class main {
 		String usersProfile = username + ".txt";
 		usersTask = newUserVariable.getUsersDate(usersProfile);
 	}
-}
-
 
 
 	static void homePage(){
+		
 		homePageVariable.homePageFunction();
 	}
+}
+
