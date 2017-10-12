@@ -16,7 +16,7 @@ public class main {
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
 		username = scanner.nextLine().trim();
 		username = username.trim();
-		while(finished==false)
+		while(finished == false)
 		{
 			if(username.trim().equals("signup"))
 			{
@@ -28,11 +28,11 @@ public class main {
 				returningUser();
 				if(username.equals("signup"))
 				{
-					finished= false;
+					finished = false;
 				}
 				else
 				{
-					finished=true;
+					finished = true;
 				}
 			}
 		}
@@ -74,6 +74,9 @@ public class main {
 			String usersProfile = username + ".txt";
 			usersTask = returningUserVariable.getUsersDate(usersProfile);
 		}
+		else if(returningUserVariable.CredentialsConfirmed() == true){
+			homePage();
+		}
 	}
 	
 	
@@ -101,3 +104,9 @@ public class main {
 		usersTask = newUserVariable.getUsersDate(usersProfile);
 	}
 }
+
+
+
+	static void homePage(){
+		homePageVariable.homePageFunction();
+	}
