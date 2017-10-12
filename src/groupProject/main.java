@@ -103,10 +103,14 @@ public class main {
 		String usersProfile = username + ".txt";
 		usersTask = newUserVariable.getUsersDate(usersProfile);
 	}
+	
+	
+	static void homePage(){
+		homePageVariable.homePageFunction();
+	}
+	
 }
 
 
 
-	static void homePage(){
-		homePageVariable.homePageFunction();
-	}
+	
