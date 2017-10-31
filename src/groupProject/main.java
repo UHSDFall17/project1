@@ -3,7 +3,7 @@ package com.group1.project1.anyDont;
 import java.util.Scanner;
 
 
-public class main {
+public class Main {
 
 	public static String username="", password="";
 	public static String[] usersTask;
@@ -11,7 +11,7 @@ public class main {
 	static newUser newUserVariable = new newUser();
 	static homePage homePageVariable = new homePage();
 	
-	public static void main(String[] args) {
+	public static void Main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
 		username = scanner.nextLine().trim();
