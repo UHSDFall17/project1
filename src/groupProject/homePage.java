@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-public class homePage {
+public class HomePage {
 
     
     String user_decision = "";

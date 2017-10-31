@@ -1,5 +1,5 @@
 package com.group1.project1.anyDont;
-
+//Created by James Rodgers
 import java.util.Scanner;
 
 
@@ -8,8 +8,8 @@ public class Main {
 	public static String username="", password="";
 	public static String[] usersTask;
 	public static boolean finished = false;
-	static newUser newUserVariable = new newUser();
-	static homePage homePageVariable = new homePage();
+	static NewUser newUserVariable = new NewUser();
+	static HomePage homePageVariable = new HomePage();
 	
 	public static void Main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -45,12 +45,12 @@ public class Main {
 	{
 
 		Scanner scanner = new Scanner(System.in);
-		returningUser returningUserVariable = new returningUser();
+		ReturningUser returningUserVariable = new ReturningUser();
 		System.out.println("password: ");
 		password = scanner.nextLine().trim();
 		returningUserVariable.setUsername(username);
 		returningUserVariable.setPassword(password);
-		com.group1.project1.anyDont.returningUser.loadFile();
+		com.group1.project1.anyDont.ReturningUser.loadFile();
 		while(!returningUserVariable.CredentialsConfirmed()&& !username.equals("signup"))
 		{
 			System.out.println("username and/or password do not match records on file.\ntry again or type signup\nusername: ");

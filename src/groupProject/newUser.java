@@ -1,12 +1,12 @@
 package com.group1.project1.anyDont;
-
+//created by James Rodgers
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class newUser {
+public class NewUser {
 
 	String username = "", password="";
 	public static String[] usersTask;
