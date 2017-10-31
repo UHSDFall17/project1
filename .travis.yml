@@ -1,2 +1,5 @@
 language: java
 script: mvn clean compile
+notifications:
+    email:
+        -james.rodgers_90@yahoo.com
