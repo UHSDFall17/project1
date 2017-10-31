@@ -11,13 +11,20 @@ import java.util.Scanner;
 public class homePage {
 
     
+    String user_decision = "";
     
-    
-    
-    public static void homePageFunction() {
+    public String getUser_Decision(){
+        return this.user_decision;
+    }
+
+    public void setUser_Decision(String user_decision){
+        this.user_decision = user_decision;
+    }
+
+    public void homePageFunction() {
         
         Scanner reader = new Scanner(System.in);
-        String user_decision;
+        //String user_decision;
         
         System.out.println("----------------------------------------------");
         System.out.println("");
