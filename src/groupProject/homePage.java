@@ -20,11 +20,11 @@ public class HomePage {
     public void setUser_Decision(String user_decision){
         this.user_decision = user_decision;
     }
-
+    
+    
     public void homePageFunction() {
         
-        Scanner reader = new Scanner(System.in);
-        //String user_decision;
+        
         
         System.out.println("----------------------------------------------");
         System.out.println("");
@@ -43,28 +43,32 @@ public class HomePage {
         catch(FileNotFoundException e){
             System.err.format("File does not exist\n");
         }
-        System.out.println("");
-        System.out.println("If you want to add a new task enter A, if you want to logout press X.");
-        user_decision = reader.next().toUpperCase();
+        System.out.println("...");
         
-        if("A".equals(user_decision) || "X".equals(user_decision)){
+        
+        
+    }
+    
+    public void userDecision(String userDec){
+        
+        Scanner scanner = new Scanner(System.in);
+        if("A".equals(userDec) || "X".equals(userDec)){
             System.out.println("");
             System.out.println("----------------------------------------------");
         }
         else{
-            while(!"A".equals(user_decision) || !"X".equals(user_decision)){
+            while(!"A".equals(userDec) || !"X".equals(userDec)){
                     System.out.println("Please enter A or X.");
-                    user_decision = reader.next().toUpperCase();
+                    userDec = scanner.next().toUpperCase();
                 
-                    if(user_decision.equals("A") ||user_decision.equals("X")){
+                    if(userDec.equals("A") ||userDec.equals("X")){
                         System.out.println("");
                         System.out.println("----------------------------------------------");
                         break;
                     }
             }
         }
-        
-        
+
     }
     
 }
