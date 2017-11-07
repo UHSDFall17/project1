@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static String username="", password="";
+	public static String username="", password="", user_decision="";
 	public static String[] usersTask;
 	public static boolean finished = false;
 	static NewUser newUserVariable = new NewUser();
@@ -101,7 +101,13 @@ public class Main {
 
 	static void homePage(){
 		
+                Scanner scanner = new Scanner(System.in);
 		homePageVariable.homePageFunction();
+                System.out.println("If you want to add a new task enter A, if you want to logout press X.");
+                user_decision = scanner.nextLine().trim();
+                homePageVariable.setUser_Decision(user_decision);
+                homePageVariable.userDecision(user_decision);
+            
 	}
 }
 
