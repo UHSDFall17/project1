@@ -3,7 +3,7 @@ package com.group1.project1.anyDont;
 import java.util.Scanner;
 
 
-public class new_task {
+public class NewTask {
 	
 	Scanner sc = new Scanner(System.in);
 	
