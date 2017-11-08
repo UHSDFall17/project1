@@ -17,6 +17,7 @@ public class Main {
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
 		username = scanner.nextLine().trim();
 		username = username.trim();
+		scanner.close();
 		while(finished == false)
 		{
 			if(username.trim().equals("signup"))
@@ -62,6 +63,7 @@ public class Main {
 				user.setPassword(password);
 			}
 		}
+		scanner.close();
 		if(!username.equals("signup"))
 		{
 			String usersProfile = username + ".txt";
@@ -87,7 +89,7 @@ public class Main {
 			username = scanner.nextLine().trim();
 			user.setUsername(username);
 		}
-		
+		scanner.close();
 		user.createUserFile();
 		user.amendCredentials();
 		String usersProfile = username + ".txt";
@@ -100,6 +102,7 @@ public class Main {
 		homePageVariable.homePageFunction(username);
 		System.out.println("If you want to add a new task enter A, if you want to logout press X.");
 		user_decision = scanner.nextLine().trim();
+		scanner.close();
 		homePageVariable.setUser_Decision(user_decision);
 		homePageVariable.userDecision(user_decision);
 	}
