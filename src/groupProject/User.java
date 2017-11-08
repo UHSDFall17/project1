@@ -107,7 +107,7 @@ public class User {
 		{
 			//test if the first letting in the line is M if so count++
 			count++;
-			String temp = profileInformation.next();
+			profileInformation.next();
 		}
 		
 		usersTask = new String[count];

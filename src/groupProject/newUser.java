@@ -1,5 +1,5 @@
 package com.group1.project1.anyDont;
-//created by James Rodgers
+//Created by James Rodgers
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
