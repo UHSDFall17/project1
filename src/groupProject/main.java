@@ -10,8 +10,9 @@ public class Main {
 	public static boolean finished = false;
 	static NewUser newUserVariable = new NewUser();
 	static HomePage homePageVariable = new HomePage();
+	static User user = new User();
 	
-	public static void Main(String[] args) {
+	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
 		username = scanner.nextLine().trim();
@@ -35,23 +36,21 @@ public class Main {
 					finished = true;
 				}
 			}
-			homePage();
 		}
+		homePage();
 		
-	
 	}
 	
 	static void returningUser()
 	{
 
 		Scanner scanner = new Scanner(System.in);
-		ReturningUser returningUserVariable = new ReturningUser();
 		System.out.println("password: ");
 		password = scanner.nextLine().trim();
-		returningUserVariable.setUsername(username);
-		returningUserVariable.setPassword(password);
-		com.group1.project1.anyDont.ReturningUser.loadFile();
-		while(!returningUserVariable.CredentialsConfirmed()&& !username.equals("signup"))
+		user.setUsername(username);
+		user.setPassword(password);
+		user.loadFile();
+		while(!user.credentialsConfirmed() && !username.equals("signup"))
 		{
 			System.out.println("username and/or password do not match records on file.\ntry again or type signup\nusername: ");
 			username = scanner.nextLine().trim();
@@ -59,17 +58,14 @@ public class Main {
 			{
 				System.out.println("password: ");
 				password =scanner.nextLine().trim();
-				returningUserVariable.setUsername(username);
-				returningUserVariable.setPassword(password);
+				user.setUsername(username);
+				user.setPassword(password);
 			}
 		}
 		if(!username.equals("signup"))
 		{
 			String usersProfile = username + ".txt";
-			usersTask = returningUserVariable.getUsersDate(usersProfile);
-		}
-		else if(returningUserVariable.CredentialsConfirmed() == true){
-			homePage();
+			usersTask = user.getUsersDate(usersProfile);
 		}
 	}
 	
@@ -80,28 +76,27 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter desired username: ");
 		username = scanner.nextLine().trim();
-		newUserVariable.setUsername(username);
+		user.setUsername(username);
 		System.out.println("Enter desired password: ");
 		password = scanner.nextLine().trim();
-		newUserVariable.setPassword(password);
+		user.setPassword(password);
 		
-		while(!newUserVariable.uniqueUsernames())
+		while(!user.uniqueUsernames())
 		{
 			System.out.println("Username is arleady taken, select a new username\nEnter desired username: ");
 			username = scanner.nextLine().trim();
-			newUserVariable.setUsername(username);
+			user.setUsername(username);
 		}
 		
-		newUserVariable.createUserFile();
-		newUserVariable.amendCredentials();
+		user.createUserFile();
+		user.amendCredentials();
 		String usersProfile = username + ".txt";
-		usersTask = newUserVariable.getUsersDate(usersProfile);
+		usersTask = user.getUsersDate(usersProfile);
 	}
 
 
 	static void homePage(){
-		
-		homePageVariable.homePageFunction();
+		homePageVariable.homePageFunction(username);
 	}
 }
 

@@ -9,27 +9,16 @@ import java.util.Scanner;
 
 
 public class HomePage {
-
-    
-    String user_decision = "";
-    
-    public String getUser_Decision(){
-        return this.user_decision;
-    }
-
-    public void setUser_Decision(String user_decision){
-        this.user_decision = user_decision;
-    }
-
-    public void homePageFunction() {
+   
+    public void homePageFunction(String username) {
         
         Scanner reader = new Scanner(System.in);
-        //String user_decision;
+        String user_decision;
         
         System.out.println("----------------------------------------------");
         System.out.println("");
         
-        File file = new File("user1.txt");
+        File file = new File(username + ".txt");
         try{
             Scanner input = new Scanner(file);
             String name = input.nextLine();

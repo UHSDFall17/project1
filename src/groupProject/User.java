@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class User {
 
 	
-	String username = "", password="";
+	private String username = "";
+	private String password="";
 	public static String[] userName_passwords;
 	public static String[] usersTask;
 	
@@ -59,7 +60,7 @@ public class User {
         }
 	}
 	
-	public boolean CredentialsConfirmed()
+	public boolean credentialsConfirmed()
 	{
 		for(int i=0; i < userName_passwords.length-1; i++)
 		{
@@ -179,7 +180,7 @@ public class User {
 		return true;
 	}
 	
-	public static void loadFile()
+	public void loadFile()
 	{
 		
 		File file = new File("user_password.txt");
