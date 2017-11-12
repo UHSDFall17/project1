@@ -180,7 +180,7 @@ public class User {
 		return true;
 	}
 	
-	public void loadFile()
+	public static void loadFile()
 	{
 		
 		File file = new File("user_password.txt");

@@ -1,5 +1,5 @@
 package com.group1.project1.anyDont;
-//Created by James Rodgers
+//Created James Rodgers
 import java.util.Random;
 
 import org.junit.Before;
@@ -17,7 +17,7 @@ public class AppTest extends TestCase {
 	public void setUp()
 	{
 		//sets up the file system for the second test
-		NewUser newUserVariable = new NewUser();
+		User newUserVariable = new User();
 		newUserVariable.setUsername("testing");
 		newUserVariable.setPassword("testing");
 		boolean result = newUserVariable.uniqueUsernames();
@@ -31,7 +31,7 @@ public class AppTest extends TestCase {
 	@Test
 	public void test_new_User_has_unique_username()
 	{
-		NewUser newUserVariable = new NewUser();
+		User newUserVariable = new User();
 
 		newUserVariable.setUsername(String.valueOf(random));
 		newUserVariable.setPassword(String.valueOf(random));
@@ -44,7 +44,7 @@ public class AppTest extends TestCase {
 	@Test
 	public void test_new_User_does_not_have_unique_username()
 	{
-		NewUser newUserVariable = new NewUser();
+		User newUserVariable = new User();
 		newUserVariable.setUsername("testing");
 		newUserVariable.setPassword("testing");
 		boolean expectation = false;
@@ -74,12 +74,12 @@ public class AppTest extends TestCase {
 	@Test
 	public void test_Returning_User_Signin()
 	{
-		ReturningUser returningUserVariable = new ReturningUser();
+		User returningUserVariable = new User();
 		returningUserVariable.setUsername("testing");
 		returningUserVariable.setPassword("testing");
-		ReturningUser.loadFile();
+		User.loadFile();
 		boolean expectation = true;
-		boolean result = returningUserVariable.CredentialsConfirmed();
+		boolean result = returningUserVariable.credentialsConfirmed();
 		assertEquals(expectation, result);
 	}
 	
