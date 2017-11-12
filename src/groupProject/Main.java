@@ -8,7 +8,6 @@ public class Main {
 	public static String username="", password="", user_decision="";
 	public static String[] usersTask;
 	public static boolean finished = false;
-	static NewUser newUserVariable = new NewUser();
 	static HomePage homePageVariable = new HomePage();
 	static User user = new User();
 	
