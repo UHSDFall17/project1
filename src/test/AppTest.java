@@ -77,7 +77,7 @@ public class AppTest extends TestCase {
 		User returningUserVariable = new User();
 		returningUserVariable.setUsername("testing");
 		returningUserVariable.setPassword("testing");
-		User.loadFile();
+		returningUserVariable.loadFile();
 		boolean expectation = true;
 		boolean result = returningUserVariable.credentialsConfirmed();
 		assertEquals(expectation, result);
