@@ -16,7 +16,6 @@ public class Main {
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
 		username = scanner.nextLine().trim();
 		username = username.trim();
-		scanner.close();
 		while(finished == false)
 		{
 			if(username.trim().equals("signup"))
@@ -38,7 +37,7 @@ public class Main {
 			}
 		}
 		homePage();
-		
+		scanner.close();
 	}
 	
 	static void returningUser()
