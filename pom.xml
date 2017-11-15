@@ -4,7 +4,7 @@
 
   <groupId>com.group1.project1</groupId>
   <artifactId>anyDont</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>anyDont</name>
@@ -21,6 +21,11 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+   	  <groupId>org.apache.commons</groupId>
+   	  <artifactId>commons-lang3</artifactId>
+   	  <version>3.3.2</version>
+	</dependency>
   </dependencies>
  
 </project>

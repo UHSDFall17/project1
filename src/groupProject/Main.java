@@ -2,12 +2,11 @@ package com.group1.project1.anyDont;
 //Created by James Rodgers
 import java.util.Scanner;
 
-
 public class Main {
 
 	public static String username="", user_decision="";
 	private static String email = "", password="";
-	private static String corporateAccount = "";
+	private static String accountType = "";
 	public static String[] usersTask;
 	public static boolean finished = false;
 	static HomePage homePageVariable = new HomePage();
@@ -38,13 +37,13 @@ public class Main {
 				}
 			}
 		}
+		
 		homePage();
 		scanner.close();
 	}
 	
 	static void returningUser()
 	{
-
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("password: ");
@@ -69,10 +68,9 @@ public class Main {
 		{
 			String usersProfile = username + ".txt";
 			usersTask = user.getUsersDate(usersProfile);
+			accountType = user.checkAccountType();
 		}
-	}
-	
-	
+	}	
 	
 	static void createNewUser()
 	{
@@ -81,30 +79,29 @@ public class Main {
 		System.out.println("Enter desired username: ");
 		username = scanner.nextLine().trim();
 		user.setUsername(username);
-		System.out.println("Enter desired password: ");
-		password = scanner.nextLine().trim();
-		user.setPassword(password);
-		System.out.println("Enter Email: ");
-		email = scanner.nextLine().trim();
-		user.setEmail(email);
 		while(!user.uniqueUsernames())
 		{
 			System.out.println("Username is arleady taken, select a new username\nEnter desired username: ");
 			username = scanner.nextLine().trim();
 			user.setUsername(username);
 		}
+		System.out.println("Enter desired password: ");
+		password = scanner.nextLine().trim();
+		user.setPassword(password);
+		System.out.println("Enter Email: ");
+		email = scanner.nextLine().trim();
+		user.setEmail(email);
+		
 		user.createUserFile();
 		user.amendCredentials();
-		corporateAccount = user.checkAccountType();
-		
+		accountType = user.checkAccountType();
 		String usersProfile = username + ".txt";
 		usersTask = user.getUsersDate(usersProfile);
 	}
 
-
 	static void homePage(){
 		Scanner scanner = new Scanner(System.in);
-		homePageVariable.homePageFunction(username, usersTask);
+		homePageVariable.homePageFunction(username, usersTask, accountType);
 		System.out.println("If you want to add a new task enter A, if you want to logout press X.");
 		user_decision = scanner.nextLine().trim();
 		scanner.close();

@@ -1,5 +1,5 @@
 package com.group1.project1.anyDont;
-
+//Created by James Rodgers
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class User {
-
 	
 	private String username = "";
 	private String password="";
@@ -77,6 +76,7 @@ public class User {
 		{
 			if(userName_passwords[i].equals(getUsername()) && userName_passwords[i+1].equals(getPassword()))
 			{
+				this.email = userName_passwords[i+2];
 				return true;
 			}
 		}
@@ -88,7 +88,6 @@ public class User {
 		boolean result = false;
 		String newFile = this.username + ".txt"; 
 		FileWriter fw = null;
-		
 		try {
 			File file = new File(newFile);
 			fw = new FileWriter(file, true);
@@ -136,13 +135,11 @@ public class User {
 		while(profileInformation.hasNext())
 		{
 			usersTask[j] = profileInformation.next();
+			usersTask[j] = usersTask[j].trim();
 			j++;
 			
 		}
-		
-		//closes file
-		profileInformation.close();
-		
+		profileInformation.close();		
 		return usersTask;
 	}
 	
@@ -190,8 +187,7 @@ public class User {
 	}
 	
 	public void loadFile()
-	{
-		
+	{		
 		File file = new File("user_password.txt");
 		if(!file.exists())
 		{
@@ -235,21 +231,17 @@ public class User {
 		while(userLoginInformation.hasNext())
 		{
 			userName_passwords[j] = userLoginInformation.next();
-			j++;
-			
+			j++;			
 		}
 		//closes file
-		userLoginInformation.close();
-		
+		userLoginInformation.close();		
 	}
 	
 	public String checkAccountType()
 	{
-		String accountType = "Regular", emailDomain = "";
-		
+		String accountType = "Regular", emailDomain = "";		
 		//get the @ some.com
 		emailDomain = email.substring(email.lastIndexOf("@") + 1);
-
 		File file = new File("user_password.txt");
 		if(!file.exists())
 		{
@@ -280,10 +272,8 @@ public class User {
 			{
 				accountType = corprateAccount.next();
 			}			
-		}
-		
+		}		
 		corprateAccount.close();
-		
 		return accountType;
 	}
 

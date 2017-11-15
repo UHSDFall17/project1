@@ -2,6 +2,7 @@ package com.group1.project1.anyDont;
 //Created James Rodgers
 import java.util.Random;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,6 +21,7 @@ public class AppTest extends TestCase {
 		User newUserVariable = new User();
 		newUserVariable.setUsername("testing");
 		newUserVariable.setPassword("testing");
+		newUserVariable.setEmail("testint@text.junit");
 		boolean result = newUserVariable.uniqueUsernames();
 		if(result)
 		{
@@ -39,6 +41,29 @@ public class AppTest extends TestCase {
 		boolean result = newUserVariable.uniqueUsernames();
 		assertEquals(expectation, result);
 		
+	}	
+
+	@Test
+	public void test_new_User_Credential_appended()
+	{
+		User newUserVariable = new User();
+		String username = RandomStringUtils.randomAlphanumeric(10);
+		newUserVariable.setUsername("T" + username);
+		while(!newUserVariable.uniqueUsernames())
+		{
+			username = RandomStringUtils.randomAlphanumeric(10);
+			newUserVariable.setUsername("T" + username);
+		}
+
+		newUserVariable.setPassword("T" + username);
+		newUserVariable.setEmail("T" + username + "@test.junit");
+		//appendCredentials
+		newUserVariable.amendCredentials();
+		newUserVariable.loadFile();
+		boolean expectation = true;
+		//checks that they were appended
+		boolean result = newUserVariable.credentialsConfirmed();
+		assertEquals(expectation, result);
 	}
 	
 	@Test
@@ -51,6 +76,37 @@ public class AppTest extends TestCase {
 		boolean result = newUserVariable.uniqueUsernames();
 		assertEquals(expectation, result);
 	}
+	
+	@Test
+	public void test_Returning_User_Signin()
+	{
+		User returningUserVariable = new User();
+		returningUserVariable.setUsername("testing");
+		returningUserVariable.setPassword("testing");
+		returningUserVariable.setEmail("testint@text.junit");
+		returningUserVariable.loadFile();
+		boolean expectation = true;
+		boolean result = returningUserVariable.credentialsConfirmed();
+		assertEquals(expectation, result);
+	}
+	
+	
+	
+//	@Test
+//	public void test_Returning_User_File_Downloaded()
+//	{
+//		String[] usersTask = null;
+//		returningUser returningUserVariable = new returningUser();
+//		returningUserVariable.setUsername("testing");
+//		returningUserVariable.setPassword("testing");
+//		returningUser.loadFile();
+//		boolean result = returningUserVariable.CredentialsConfirmed();
+//		if(result)
+//		{
+//			usersTask = returningUserVariable.getUsersDate("testing.txt");
+//		}
+//		assertNotNull(usersTask);
+//	}
 	
 //	@Test
 //	public void test_new_user_tasklist_created_after_signup()
@@ -70,35 +126,6 @@ public class AppTest extends TestCase {
 //		}
 //		assertEquals(expectation, userFileCreated);
 //	}
-	
-	@Test
-	public void test_Returning_User_Signin()
-	{
-		User returningUserVariable = new User();
-		returningUserVariable.setUsername("testing");
-		returningUserVariable.setPassword("testing");
-		returningUserVariable.loadFile();
-		boolean expectation = true;
-		boolean result = returningUserVariable.credentialsConfirmed();
-		assertEquals(expectation, result);
-	}
-	
-//	@Test
-//	public void test_Returning_User_File_Downloaded()
-//	{
-//		String[] usersTask = null;
-//		returningUser returningUserVariable = new returningUser();
-//		returningUserVariable.setUsername("testing");
-//		returningUserVariable.setPassword("testing");
-//		returningUser.loadFile();
-//		boolean result = returningUserVariable.CredentialsConfirmed();
-//		if(result)
-//		{
-//			usersTask = returningUserVariable.getUsersDate("testing.txt");
-//		}
-//		assertNotNull(usersTask);
-//	}
-//	
 
 	
 }
