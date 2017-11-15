@@ -11,6 +11,7 @@ public class User {
 	
 	private String username = "";
 	private String password="";
+	private String email = "";
 	public static String[] userName_passwords;
 	public static String[] usersTask;
 	
@@ -18,6 +19,16 @@ public class User {
 	public String getUsername()
 	{
 		return this.username;
+	}
+	
+	public String getEmail()
+	{
+		return this.email;
+	}
+	
+	public void setEmail(String email)
+	{
+		this.email = email;
 	}
 	
 	public void setUsername(String username)
@@ -37,7 +48,7 @@ public class User {
 	
 	public void amendCredentials()
 	{
-		String newInfo = this.username + " " + this.password; 
+		String newInfo = this.username + " " + this.password + " " + this.email; 
 		FileWriter fw = null;
 		
 		try {
@@ -62,7 +73,7 @@ public class User {
 	
 	public boolean credentialsConfirmed()
 	{
-		for(int i=0; i < userName_passwords.length-1; i++)
+		for(int i=0; i < userName_passwords.length-1; i = i + 3)
 		{
 			if(userName_passwords[i].equals(getUsername()) && userName_passwords[i+1].equals(getPassword()))
 			{
@@ -129,11 +140,6 @@ public class User {
 			
 		}
 		
-//		for(int i= 0; i < usersTask.length; i++)
-//		{
-//			System.out.println(usersTask[i]);
-//		}
-//		
 		//closes file
 		profileInformation.close();
 		
@@ -174,6 +180,9 @@ public class User {
 				checkForUsername.close();
 				return false;
 			}
+			//reads the password and email
+			checkForUsername.next();
+			checkForUsername.next();
 		}
 		//closes file
 		checkForUsername.close();
@@ -232,6 +241,50 @@ public class User {
 		//closes file
 		userLoginInformation.close();
 		
+	}
+	
+	public String checkAccountType()
+	{
+		String accountType = "Regular", emailDomain = "";
+		
+		//get the @ some.com
+		emailDomain = email.substring(email.lastIndexOf("@") + 1);
+
+		File file = new File("user_password.txt");
+		if(!file.exists())
+		{
+			FileWriter fw = null;
+			try {
+				File file1 = new File("user_password.txt");
+				fw = new FileWriter(file1, true);
+	            fw.close();
+	        } catch (IOException ex) {
+	        	ex.printStackTrace();
+	        }					
+		}		
+		
+		Scanner corprateAccount =null;
+		try 
+		{
+			corprateAccount = new Scanner(new FileInputStream("corporate_accounts.txt"));
+		}
+		catch(IOException e)
+		{
+			System.out.println("Password file not found");
+		}
+		//checks if the @###.## matches records if so it returns the type of account if no matches than its regular.
+		while(corprateAccount.hasNext())
+		{
+			String compare = corprateAccount.next();
+			if(compare.equals(emailDomain))
+			{
+				accountType = corprateAccount.next();
+			}			
+		}
+		
+		corprateAccount.close();
+		
+		return accountType;
 	}
 
 }

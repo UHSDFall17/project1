@@ -1,0 +1,17 @@
+~Main Sprint 1
+~Task Edit Select Icon
+~DueDate 12/01/2017 5:00PM 
+~Checked check 
+~Task Display All Customers
+~DueDate 12/02/2017 3:00PM 
+~Checked uncheck 
+~Task Push To Aplha
+~DueDate 12/03/2017 8:00PM 
+~Checked uncheck 
+~Main Future Assignment 
+~Task Redesign Website Layout
+~DueDate 11/31/2018 05:00AM
+~Checked uncheck 
+~Task Create IOS App
+~DueDate 11/31/2018 11:59PM
+~Checked uncheck 

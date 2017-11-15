@@ -1,0 +1,11 @@
+~Main name of the main folder 
+~Task the task needed to be done 
+~DueDate 00/00/0000 00:00AM/PM 
+~Checked check\uncheck 
+~Task another task in the folder 
+~DueDate 00/00/0000 00:00AM/PM 
+~Checked check\uncheck 
+~Main Name of another folder 
+~Task the task needed to be done 
+~DueDate 00/00/0000 00:00AM/PM 
+~Checked true/false

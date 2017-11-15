@@ -5,7 +5,9 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static String username="", password="", user_decision="";
+	public static String username="", user_decision="";
+	private static String email = "", password="";
+	private static String corporateAccount = "";
 	public static String[] usersTask;
 	public static boolean finished = false;
 	static HomePage homePageVariable = new HomePage();
@@ -47,6 +49,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("password: ");
 		password = scanner.nextLine();
+		password = password.trim();
 		user.setUsername(username);
 		user.setPassword(password);
 		user.loadFile();
@@ -81,7 +84,9 @@ public class Main {
 		System.out.println("Enter desired password: ");
 		password = scanner.nextLine().trim();
 		user.setPassword(password);
-		
+		System.out.println("Enter Email: ");
+		email = scanner.nextLine().trim();
+		user.setEmail(email);
 		while(!user.uniqueUsernames())
 		{
 			System.out.println("Username is arleady taken, select a new username\nEnter desired username: ");
@@ -90,6 +95,8 @@ public class Main {
 		}
 		user.createUserFile();
 		user.amendCredentials();
+		corporateAccount = user.checkAccountType();
+		
 		String usersProfile = username + ".txt";
 		usersTask = user.getUsersDate(usersProfile);
 	}

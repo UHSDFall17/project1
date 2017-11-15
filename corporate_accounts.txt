@@ -1,0 +1,5 @@
+intel.com corporate
+stop.com corporate
+olufsen.hp corporate
+uh.edu student
+ut.edu student
