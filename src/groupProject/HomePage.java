@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class HomePage {
    
 	String user_decision = "";
+	public static String[] usersTask;
+	
     
     public String getUser_Decision(){
         return this.user_decision;
@@ -22,35 +24,41 @@ public class HomePage {
     
    
     
-    public void homePageFunction(String username) {
+    public void homePageFunction(String username, String[] existingTask) {
         
         
     	
     	System.out.println("----------------------------------------------");
         System.out.println("");
-        
-        File file = new File(username + ".txt");
-        try{
-            Scanner input = new Scanner(file);
-            String name = input.nextLine();
-            System.out.println("Hello " + name);
-            while (input.hasNext()){
-                String num = input.nextLine();
-                System.out.println(num);
-            }
+        usersTask = existingTask;
+//        File file = new File(username + ".txt");
+//        try{
+//            @SuppressWarnings("resource")
+//			Scanner input = new Scanner(file);
+//            String name = input.nextLine();
+//            System.out.println("Hello " + name);
+//            while (input.hasNext()){
+//                String num = input.nextLine();
+//                System.out.println(num);
+//            }
+//        }
+//        
+//        catch(FileNotFoundException e){
+//            System.err.format("File does not exist\n");
+//        }
+//        System.out.println("...");
+//        
+        for(int i =0; i < existingTask.length; i++)
+        {
+        	System.out.println(usersTask[i]);
         }
-        
-        catch(FileNotFoundException e){
-            System.err.format("File does not exist\n");
-        }
-        System.out.println("...");
-        
         
     }
     
     public void userDecision(String userDec){
     	
-    	Scanner scanner = new Scanner(System.in);
+    	@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
         if("A".equals(userDec) || "X".equals(userDec)){
             System.out.println("");
             System.out.println("----------------------------------------------");

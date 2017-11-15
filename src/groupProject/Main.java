@@ -43,9 +43,10 @@ public class Main {
 	static void returningUser()
 	{
 
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("password: ");
-		password = scanner.nextLine().trim();
+		password = scanner.nextLine();
 		user.setUsername(username);
 		user.setPassword(password);
 		user.loadFile();
@@ -61,7 +62,6 @@ public class Main {
 				user.setPassword(password);
 			}
 		}
-		scanner.close();
 		if(!username.equals("signup"))
 		{
 			String usersProfile = username + ".txt";
@@ -73,6 +73,7 @@ public class Main {
 	
 	static void createNewUser()
 	{
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter desired username: ");
 		username = scanner.nextLine().trim();
@@ -87,7 +88,6 @@ public class Main {
 			username = scanner.nextLine().trim();
 			user.setUsername(username);
 		}
-		scanner.close();
 		user.createUserFile();
 		user.amendCredentials();
 		String usersProfile = username + ".txt";
@@ -97,7 +97,7 @@ public class Main {
 
 	static void homePage(){
 		Scanner scanner = new Scanner(System.in);
-		homePageVariable.homePageFunction(username);
+		homePageVariable.homePageFunction(username, usersTask);
 		System.out.println("If you want to add a new task enter A, if you want to logout press X.");
 		user_decision = scanner.nextLine().trim();
 		scanner.close();
