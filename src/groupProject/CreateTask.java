@@ -16,16 +16,20 @@ public class CreateTask {
 	private int hour = 0;
 	private int minute = 0;
 	
-	private String date;
-	private String timeDue;
+	private String date = null;
+	private String timeDue = null;
 	private SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
 	private SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
 
-	private boolean isRepeating = false;
-	private boolean isCompleted = false;
+	private boolean isRepeating;
+	private boolean isCompleted;
 	
+	public CreateTask()
+	{
+		
+	}
 	
-	public String getTask()
+	public String getDescription()
 	{
 		System.out.print("Enter the description of your task: ");
 		String description = sc.nextLine();
@@ -33,7 +37,7 @@ public class CreateTask {
 		return description;
 	}
 	
-	public String getDescription()
+	public String getNote()
 	{
 		String note = sc.nextLine();
 		return note;
@@ -171,9 +175,37 @@ public class CreateTask {
 		timeDue = sdf2.format(taskTime);
 	}
 	
-	protected boolean RepeatTask()
+	protected boolean CheckRepetition()
 	{
-		return isRepeating;
+		String temp;
+		if(!isRepeating) {
+			return isRepeating = false;
+		}else {
+			System.out.println("Is this a repeating task?");
+			System.out.print("Please enter Y or N: ");
+			temp = sc.next().toUpperCase();
+			if(!temp.equals("Y") || !temp.equals("N"))
+			{
+				System.err.println("INVALID INPUT");
+				CheckRepetition();
+			}
+			if(temp.equals("Y")){
+				return isRepeating = true;
+				//CreateTask();
+			}else{
+				return isRepeating = false;
+			}
+		}
+	}
+	
+	protected void isRepeatingSwitch()
+	{
+		if(isRepeating = true)
+		{
+			isRepeating = false;
+		}else {
+			isRepeating = true;
+		}
 	}
 		
 	protected boolean CheckCompletion()
@@ -183,13 +215,14 @@ public class CreateTask {
 			return isCompleted = true;
 		}else{
 			
-			System.out.println("Would you like to mark the task as incomplete? (Y/N)");
-			temp = sc.next();
+			System.out.println("Would you like to mark the task as incomplete?");
+			System.out.print("Please enter Y or N: ");
+			temp = sc.next().toUpperCase();
 			
-			while(!temp.equals("Y") || !temp.equals("N"))
+			if(!temp.equals("Y") || !temp.equals("N"))
 			{
-				System.out.println("Please enter Y or N");
-				temp = sc.next();
+				System.err.println("INVALID INPUT");
+				CheckCompletion();
 			}
 			
 			if(temp.equals("Y")){
@@ -202,7 +235,5 @@ public class CreateTask {
 
 }
      
-        
- 
         
  
