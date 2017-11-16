@@ -90,7 +90,16 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 	
-	
+	@Test
+	public void test_Check_Corporate_Account()
+	{
+		User returningUserVariable = new User();
+		returningUserVariable.setEmail("jrodger@intel.com");
+		
+		String expectation = "Corporate";
+		String result = returningUserVariable.checkAccountType();
+		assertEquals(expectation, result);
+	}
 	
 //	@Test
 //	public void test_Returning_User_File_Downloaded()
