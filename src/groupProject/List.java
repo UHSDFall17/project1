@@ -1,46 +1,42 @@
 package com.group1.project1.anyDont;
 
 import java.util.*;
-import java.util.stream.Stream;
 import java.io.File;
 
 public class List {
 	
-	Scanner sc = new Scanner(System.in);
+	Scanner sc；
 	private ArrayList<Task> taskList;
 	
 	public List()
 	{
+		sc = new Scanner(System.in);
 		taskList = new ArrayList<Task>();
 	}
 	
 	public int listFunction()
 	{
 		int op;
-		print("HELLO, WHAT WOULD YOU LIKE TO DO?");  //INSERT USERNAME LATER
-		print("1: VIEW LIST");
-		print("2: CREATE NEW TASK");
-		print("3: EDIT A TASK");
-		print("4: REMOVE A TASK");
-		print("5: RETURN");
-		System.out.print("ENTER AN INDEX: "); 
-		op = sc.nextInt();
-		if(op == 5)
-		{
-			return 1;
-		}else {
+		while(op != 5){
+			print("HELLO, WHAT WOULD YOU LIKE TO DO?");  //INSERT USERNAME LATER
+			print("1: VIEW LIST");
+			print("2: CREATE NEW TASK");
+			print("3: EDIT A TASK");
+			print("4: REMOVE A TASK");
+			print("5: RETURN");
+			System.out.print("ENTER AN INDEX: "); 
+			op = sc.nextInt();
 			
 			switch(op) {
 			case 1: printTask(); break;
 			case 2: createTask(); break;
 			case 3: editTask(); break;
 			case 4: removeTask(); break;
-			case 5: return 1;
+			case 5: break;
 			default: print("INVALID INDEX");
 			}
 		}
 		
-		listFunction();
 		return 0;
 	}
 	
