@@ -5,35 +5,40 @@ import java.util.Date;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 
-public class CreateTask {
+public class Task {
 	
-	Scanner sc = new Scanner(System.in);
-	private String note = null;
-	private String description = null;
-	private int year = 1;
+	Scanner sc;
+	private String note;
+	private String description;
+	private int year;
 	private int month;
 	private int day;
-	private int hour = 0;
-	private int minute = 0;
-	
-	private String date = null;
-	private String timeDue = null;
-	private SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-	private SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
-
+	private int hour;
+	private int minute;
+	private String date;
+	private SimpleDateFormat sdf;
 	private boolean isRepeating;
 	private boolean isCompleted;
 	
-	public CreateTask()
+	public Task()
 	{
-		
+		sc = new Scanner(System.in);
+		note = null;
+		description = null;
+		date = null;
+		sdf = new SimpleDateFormat("MM/dd/yyyy - HH:mm");
 	}
 	
 	public String getDescription()
 	{
-		System.out.print("Enter the description of your task: ");
+		System.out.print("I WANT TO: ");
 		String description = sc.nextLine();
 		
+		return description;
+	}
+	
+	public String printDescription()
+	{
 		return description;
 	}
 	
@@ -45,11 +50,11 @@ public class CreateTask {
 	
 	public int getMonth()
 	{
-		System.out.print("Month(1-12): ");
+		System.out.print("MONTH(1-12): ");
 		month = sc.nextInt();
 		while(month < 1 || month > 12){
-			System.err.println("Input month is not within the range");
-			System.out.print("Month(1-12): ");
+			System.err.println("INVALID INPUT");
+			System.out.print("MONTH(1-12): ");
 			month = sc.nextInt();
 		}
 		
@@ -62,21 +67,21 @@ public class CreateTask {
 		{
 			if(isLeapYear(year) == false)
 			{
-				System.out.print("Day(1-28): ");
+				System.out.print("DAY(1-28): ");
 				day = sc.nextInt();
 				while(day < 1 || day > 28)
 				{
-						System.err.println("Input is out of range");
-						System.out.print("Day(1-28): ");
+						System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
+						System.out.print("ENTER DAY(1-28): ");
 						day = sc.nextInt();
 				}
 			}else {
-				System.out.print("Day(1-29): ");
+				System.out.print("DAY(1-29): ");
 				day = sc.nextInt();
 				while(day < 1 || day > 29)
 				{
-						System.err.println("Input is out of range");
-						System.out.print("Day(1-29): ");
+					System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
+					System.out.print("DAY(1-29): ");
 						day = sc.nextInt();
 				}
 			}
@@ -84,24 +89,24 @@ public class CreateTask {
 		
 		if(month == 1||month == 3||month == 5||month == 7||month == 8||month == 10||month == 12)
 		{
-			System.out.print("Day(1-31: ");
+			System.out.print("DAY(1-31): ");
 			day = sc.nextInt();
 			while(day < 1 || day > 31)
 			{
-					System.err.println("Input is out of range");
-					System.out.print("Day(1-31): ");
+				System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
+				System.out.print("DAY(1-31): ");
 					day = sc.nextInt();
 			}
 		}
 		
 		if(month == 4||month == 6||month == 9||month == 11)
 		{
-			System.out.print("Day(1-30: ");
+			System.out.print("DAY(1-30): ");
 			day = sc.nextInt();
 			while(day < 1 || day > 30)
 			{
-					System.err.println("Input is out of range");
-					System.out.print("Day(1-30): ");
+				System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
+				System.out.print("DAY(1-30): ");
 					day = sc.nextInt();
 			}
 		}
@@ -111,12 +116,12 @@ public class CreateTask {
 	
 	public int getYear()
 	{
-		System.out.print("Year: ");
+		System.out.print("YEAR: ");
 		year = sc.nextInt();
 		while(year < 2017)
 		{
-			System.err.println("Year must be 2017 or after");
-			System.out.print("Year: ");
+			System.err.println("INPUT CANNOT BE LESS THAN 2017");
+			System.out.print("YEAR: ");
 			year= sc.nextInt();
 		}
 		
@@ -133,12 +138,12 @@ public class CreateTask {
 	
 	public int getHour()
 	{
-		System.out.print("Hour(0-23): ");
+		System.out.print("HOUR(0-23): ");
 		hour = sc.nextInt();
 		while(hour < 0 || hour > 23)
 		{
-			System.err.println("Input is not within the range");
-			System.out.print("Hour(0-23): ");
+			System.err.println("INVALID INPUT");
+			System.out.print("ENTER HOUR(0-23): ");
 			hour = sc.nextInt();
 		}
 		
@@ -147,47 +152,57 @@ public class CreateTask {
 	
 	public int getMinute()
 	{
-		System.out.print("Minute(0-59): ");
+		System.out.print("MINUTE(0-59): ");
 		minute = sc.nextInt();
 		while(minute < 0 || minute > 59)
 		{
-			System.err.println("Input is not within the range");
-			System.out.print("Minute(0-23): ");
+			System.err.println("INVALID INPUT");
+			System.out.print("MINUTE(0-23): ");
 			minute = sc.nextInt();
 		}
 		
 		return minute;
 	}
 	
-	public void setDate(int year, int month, int day)
+	public void setTime()
+	{
+		getYear();
+		getMonth();
+		getDay(year, month);
+		getHour();
+		getMinute();
+		setDate(year, month, day, hour, minute);
+	}
+	
+	public void setDate(int year, int month, int day, int hour, int minute)
 	{
 		Calendar cal = Calendar.getInstance();
-		cal.set(year, month, day);
+		cal.set(year, month, day, hour, minute);
 		Date taskDate = cal.getTime();
 		date = sdf.format(taskDate);
 	}
 	
-	public void setTime(int hour, int minute)
+	public String printDate()
 	{
-		Calendar cal = Calendar.getInstance();
-		cal.set(hour, minute);
-		Date taskTime = cal.getTime();
-		timeDue = sdf2.format(taskTime);
+		return date;
 	}
 	
-	protected boolean CheckRepetition()
+	
+
+	protected boolean repeatTask()
 	{
 		String temp;
 		if(!isRepeating) {
 			return isRepeating = false;
 		}else {
-			System.out.println("Is this a repeating task?");
-			System.out.print("Please enter Y or N: ");
-			temp = sc.next().toUpperCase();
+			System.out.println("REPEAT TASK?");
+			System.out.print("Y/N : ");
+			temp = sc.next();
+			temp = temp.toUpperCase();
 			if(!temp.equals("Y") || !temp.equals("N"))
 			{
 				System.err.println("INVALID INPUT");
-				CheckRepetition();
+				repeatTask();
 			}
 			if(temp.equals("Y")){
 				return isRepeating = true;
@@ -208,21 +223,22 @@ public class CreateTask {
 		}
 	}
 		
-	protected boolean CheckCompletion()
+	protected boolean isCompletedCheck()
 	{
 		String temp;
 		if(!isCompleted){
 			return isCompleted = true;
 		}else{
 			
-			System.out.println("Would you like to mark the task as incomplete?");
-			System.out.print("Please enter Y or N: ");
-			temp = sc.next().toUpperCase();
+			System.out.println("MARK THE TASK AS INCOMPLETE?");
+			System.out.print("Y/N : ");
+			temp = sc.next();
+			temp = temp.toUpperCase();
 			
 			if(!temp.equals("Y") || !temp.equals("N"))
 			{
 				System.err.println("INVALID INPUT");
-				CheckCompletion();
+				isCompletedCheck();
 			}
 			
 			if(temp.equals("Y")){
@@ -232,7 +248,18 @@ public class CreateTask {
 			}
 		}
 	}
-
+	
+	public String printStatus()
+	{
+		if(isCompleted = true)
+		{
+			return "COMPLETE";
+			
+		}else {
+			return "INCOMPLETE";
+		}
+		
+	}
 }
      
         
