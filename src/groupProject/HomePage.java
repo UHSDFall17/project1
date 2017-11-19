@@ -1,10 +1,10 @@
 package com.group1.project1.anyDont;
 //created by Napoleon de Mesa
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+//import java.io.File;
+//import java.io.FileInputStream;
+//import java.io.FileNotFoundException;
+//import java.io.FileWriter;
+//import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -23,10 +23,9 @@ public class HomePage {
     }
     
    
-    
-    public void homePageFunction(String username, String[] existingTask) {
-        
-        
+    //account type will be "regular", "student", "corporate"
+    public void homePageFunction(String username, String[] existingTask,String accountType) {
+                
     	
     	System.out.println("----------------------------------------------");
         System.out.println("");
@@ -47,7 +46,9 @@ public class HomePage {
 //            System.err.format("File does not exist\n");
 //        }
 //        System.out.println("...");
-//        
+//      
+        
+        
         for(int i =0; i < existingTask.length; i++)
         {
         	System.out.println(usersTask[i]);
