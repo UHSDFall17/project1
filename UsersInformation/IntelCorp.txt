@@ -1,0 +1,9 @@
+Active User: 11,433
+Inactive Users: 21,001
+Total Users: 32,434
+
+Closed Task: 87,232
+Open Task: 57,998
+Total Task: 145,230
+
+For more information please contact your department manager.

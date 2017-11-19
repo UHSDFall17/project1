@@ -37,32 +37,31 @@ public class Main {
 				}
 			}
 		}
-		GreetingsMessage();
-		
+		GreetingsMessage();		
 		scanner.close();
 	}
 	
 	public static void GreetingsMessage(){
 		
-		if(accountType == "Corporate")
+		if(accountType.equals("Corporate"))
 		{
 			String choice = "";
 			Corporate corp = new Corporate(username, domain);
 			corp.CorporateGreetings();
 			choice = corp.Options();
-			if(choice == "account")
+			if(choice.equals("account"))
 			{
 				corp.DisplayCorporateInformation();
 				
 			}
 			
 		}
-//		else if(accountType == "Student")
-//		{
-//			String choice = "";
-//			Student student = new Student(username, domain);
-//			student.StudentGreetings();
-//		}
+		else if(accountType.equals("Student"))
+		{
+			System.out.println("debug " + domain);
+			Student student = new Student(username, domain);
+			student.StudentGreetings();
+		}
 		homePage();
 	}
 	
