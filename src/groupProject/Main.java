@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static String username="", user_decision="";
-	private static String email = "", password="";
+	private static String email = "", password="", domain = "";
 	private static String accountType = "";
 	public static String[] usersTask;
 	public static boolean finished = false;
@@ -37,9 +37,32 @@ public class Main {
 				}
 			}
 		}
-		
-		homePage();
+		GreetingsMessage();		
 		scanner.close();
+	}
+	
+	public static void GreetingsMessage(){
+		
+		if(accountType.equals("Corporate"))
+		{
+			String choice = "";
+			Corporate corp = new Corporate(username, domain);
+			corp.CorporateGreetings();
+			choice = corp.Options();
+			if(choice.equals("account"))
+			{
+				corp.DisplayCorporateInformation();
+				
+			}
+			
+		}
+		else if(accountType.equals("Student"))
+		{
+			System.out.println("debug " + domain);
+			Student student = new Student(username, domain);
+			student.StudentGreetings();
+		}
+		homePage();
 	}
 	
 	static void returningUser()
@@ -69,6 +92,7 @@ public class Main {
 			String usersProfile = username + ".txt";
 			usersTask = user.getUsersDate(usersProfile);
 			accountType = user.checkAccountType();
+			domain = user.userDomain();
 		}
 	}	
 	

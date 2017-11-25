@@ -241,7 +241,7 @@ public class User {
 	{
 		String accountType = "Regular", emailDomain = "";		
 		//get the @ some.com
-		emailDomain = email.substring(email.lastIndexOf("@") + 1);
+		emailDomain = userDomain();
 		File file = new File("user_password.txt");
 		if(!file.exists())
 		{
@@ -275,6 +275,15 @@ public class User {
 		}		
 		corprateAccount.close();
 		return accountType;
+	}
+	
+	public String userDomain()
+	{
+		String emailDomain = "";		
+		//get the @ some.com
+		emailDomain = email.substring(email.lastIndexOf("@") + 1);
+		
+		return emailDomain;
 	}
 
 }
