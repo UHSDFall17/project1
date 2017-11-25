@@ -1,6 +1,9 @@
 package com.group1.project1.anyDont;
+import java.util.ArrayList;
 //Created by James Rodgers
 import java.util.Scanner;
+
+import com.group1.project1.anyDont.Task;
 
 public class Main {
 
@@ -11,6 +14,7 @@ public class Main {
 	public static boolean finished = false;
 	static HomePage homePageVariable = new HomePage();
 	static User user = new User();
+	static ArrayList<List> lists = new ArrayList<List>();
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -126,11 +130,20 @@ public class Main {
 	static void homePage(){
 		Scanner scanner = new Scanner(System.in);
 		homePageVariable.homePageFunction(username, usersTask, accountType);
-		System.out.println("If you want to add a new task enter A, if you want to logout press X.");
+		System.out.println("If you want to create a new list enter A, if you want to logout press X.");
 		user_decision = scanner.nextLine().trim();
 		scanner.close();
 		homePageVariable.setUser_Decision(user_decision);
 		homePageVariable.userDecision(user_decision);
+	}
+	
+	static void createList() 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Name of the list: ");
+		String name = sc.nextLine();
+		List newlist = new List(name);
+		lists.add(newlist);
 	}
 }
 
