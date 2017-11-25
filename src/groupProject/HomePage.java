@@ -50,18 +50,18 @@ public class HomePage {
     	
     	@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-        if("A".equals(userDec) || "X".equals(userDec)){
+        if("A".equals(userDec) || "X".equals(userDec) || "a".equals(userDec) || "x".equals(userDec)){
             System.out.println("");
-            System.out.println("----------------------------------------------");
+            System.out.println("-----------------------------------");
         }
         else{
-            while(!"A".equals(userDec) || !"X".equals(userDec)){
+            while(!"A".equals(userDec) || !"X".equals(userDec) || !"a".equals(userDec) || !"x".equals(userDec)){
                     System.out.println("Please enter A or X.");
                     user_decision = scanner.next().toUpperCase();
                 
-                    if(userDec.equals("A") ||userDec.equals("X")){
+                    if(userDec.equals("A") ||userDec.equals("X")|| userDec.equals("a")|| userDec.equals("x")){
                         System.out.println("");
-                        System.out.println("----------------------------------------------");
+                        System.out.println("-----------------------------------");
                         break;
                     }
             }
