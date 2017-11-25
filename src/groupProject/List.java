@@ -6,6 +6,7 @@ import java.io.File;
 public class List {
 	
 	Scanner sc;
+	private String listName;
 	private ArrayList<Task> taskList;
 	
 	protected List()
@@ -14,28 +15,37 @@ public class List {
 		taskList = new ArrayList<Task>();
 	}
 	
+	protected List(String name)
+	{
+		listName = name;
+		sc = new Scanner(System.in);
+		taskList = new ArrayList<Task>();
+	}
+	
 	protected int listFunction()
 	{
 		int op;
-		while(op != 5){
+		do{
 			print("HELLO, WHAT WOULD YOU LIKE TO DO?");  //INSERT USERNAME LATER
-			print("1: VIEW LIST");
+			print("1: DISPLAY TASKS");
 			print("2: CREATE NEW TASK");
 			print("3: EDIT A TASK");
-			print("4: REMOVE A TASK");
-			print("5: RETURN");
+			print("4: MARK A TASTK AS COMPLETED");
+			print("5: REMOVE A TASK");
+			print("6: RETURN");
 			System.out.print("ENTER AN INDEX: "); 
 			op = sc.nextInt();
 			
 			switch(op) {
-			case 1: printTask(); break;
+			case 1: displayTasks(); break;
 			case 2: createTask(); break;
 			case 3: editTask(); break;
-			case 4: removeTask(); break;
-			case 5: break;
+			case 4: markTask(); break;
+			case 5: removeTask(); break;
+			case 6: break;
 			default: print("INVALID INDEX");
 			}
-		}
+		} while(op != 6);
 		
 		return 0;
 	}
@@ -45,16 +55,15 @@ public class List {
 		System.out.println(msg);
 	}
 
-	protected void printTask()
+	protected void displayTasks()
 	{
-
 		String output;
 		if(taskList.isEmpty() == true) {
 			print("LIST IS EMPTY");
 		}else {
 			print("");
 			for(int i = 1; i <= taskList.size(); i++){
-				output = i + ". " + taskList.get(i-1).printDescription() + " DUE: " + taskList.get(i-1).printDate() + " STATUS: " + taskList.get(i-1).printStatus();
+				output = i + ". " + taskList.get(i-1).printDescription() + " DUE: " + taskList.get(i-1).printDate() + " STATUS: " + taskList.get(i-1).checkCompletion();
 				print(output);
 			}
 		}
@@ -77,7 +86,7 @@ public class List {
 		print("TASK CREATED");
 	}
 	
-	protected int editTask()
+	protected void editTask()
 	{
 		System.out.print("INDEX OF THE TASK YOU WISH TO EDIT: ");
 		int i = sc.nextInt();
@@ -90,13 +99,13 @@ public class List {
 			print("1: SET TIME");
 			print("2: REPEAT TASK");
 			print("3: ADD NOTE");
-			print("4: ADD SUBTASK");
+			print("4: CREATE SUBTASK");
 			print("5: RETURN");
 			System.out.print("ENTER INPUT NUMBER: ");
 			op = sc.nextInt();
 			switch(op) {
 			case 1: task.setTime(); break;
-			case 2: task.repeatTask(); break;
+			case 2: repeatTask(i-1); break;
 			case 3: task.getNote(); break;
 			case 4: task.addSubtask(); break;
 			case 5: break;
@@ -104,7 +113,30 @@ public class List {
 			}
 		} while(op != 5);
 		
-		return 0;
+	}
+	
+	protected void repeatTask(int i)
+	{
+		
+	}
+	
+	protected void markTask()
+	{
+		System.out.print("INDEX OF THE TASK TO BE MARKED COMPLETED: ");
+		int i = sc.nextInt();
+		taskList.get(i-1).markCompleted();
+		print("TASK COMPLETED");
+		print("REMOVE THE TASK?");
+		print("Y/N: ");
+		String temp;
+		temp = sc.next().toUpperCase();
+		if(temp.equals("Y")){
+			taskList.remove(i-1);
+			print("TASK REMOVED");
+			for(int x = i-1; x <= taskList.size(); x++){
+				taskList.set(x, taskList.get(x+1));
+			}
+		}
 	}
 	
 	protected void removeTask()
