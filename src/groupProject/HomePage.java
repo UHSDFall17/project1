@@ -1,10 +1,6 @@
 package com.group1.project1.anyDont;
 //created by Napoleon de Mesa
-//import java.io.File;
-//import java.io.FileInputStream;
-//import java.io.FileNotFoundException;
-//import java.io.FileWriter;
-//import java.io.IOException;
+
 import java.util.Scanner;
 
 
@@ -30,28 +26,22 @@ public class HomePage {
     	System.out.println("----------------------------------------------");
         System.out.println("");
         usersTask = existingTask;
-//        File file = new File(username + ".txt");
-//        try{
-//            @SuppressWarnings("resource")
-//			Scanner input = new Scanner(file);
-//            String name = input.nextLine();
-//            System.out.println("Hello " + name);
-//            while (input.hasNext()){
-//                String num = input.nextLine();
-//                System.out.println(num);
-//            }
-//        }
-//        
-//        catch(FileNotFoundException e){
-//            System.err.format("File does not exist\n");
-//        }
-//        System.out.println("...");
-//      
-        
-        
-        for(int i =0; i < existingTask.length; i++)
+	
+	
+	for(int i =0; i < existingTask.length; i++)
         {
-        	System.out.println(usersTask[i]);
+        	if(usersTask[i].contains("Main")) {
+        		System.out.println(usersTask[i].replace("Main", ""));
+        	}
+        	else if(usersTask[i].contains("Task")) {
+        		System.out.println("   " + usersTask[i].replace("Task", ""));
+        	}
+        	else if(usersTask[i].contains("DueDate")){
+        		System.out.println("      " + usersTask[i].replace("DueDate", ""));
+        	}
+        	else if(usersTask[i].contains("Checked")){
+        		System.out.println("      " + usersTask[i].replace("Checked", ""));
+        	}
         }
         
     }
