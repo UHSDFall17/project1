@@ -135,6 +135,11 @@ public class Main {
 		scanner.close();
 		homePageVariable.setUser_Decision(user_decision);
 		homePageVariable.userDecision(user_decision);
+		
+		if(user_decision.equals("X") || user_decision.equals("x")) {
+			System.out.println("Have a good day!");
+			System.exit(0);
+		}
 	}
 	
 	static void createList() 
