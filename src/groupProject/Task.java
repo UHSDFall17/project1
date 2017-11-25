@@ -26,6 +26,8 @@ public class Task {
 		description = null;
 		date = null;
 		sdf = new SimpleDateFormat("MM/dd/yyyy - HH:mm");
+		isRepeating = false;
+		isCompleted = false;
 		subtasks = new ArrayList<String>();
 	}
 	
@@ -188,30 +190,10 @@ public class Task {
 		return date;
 	}
 	
-	
-
 	protected boolean repeatTask()
 	{
-		String temp;
-		if(!isRepeating) {
-			return isRepeating = false;
-		} else {
-			System.out.println("REPEAT TASK?");
-			System.out.print("Y/N : ");
-			temp = sc.next();
-			temp = temp.toUpperCase();
-			if(!temp.equals("Y") || !temp.equals("N"))
-			{
-				System.err.println("INVALID INPUT");
-				repeatTask();
-			}
-			if(temp.equals("Y")){
-				return isRepeating = true;
-				//CreateTask();
-			} else {
-				return isRepeating = false;
-			}
-		}
+		isRepeating = true;
+		return isRepeating;
 	}
 	
 	protected void isRepeatingSwitch()
@@ -223,37 +205,17 @@ public class Task {
 		}
 	}
 		
-	protected boolean isCompletedCheck()
+	protected boolean markCompleted()
 	{
-		String temp;
-		if(!isCompleted){
-			return isCompleted = true;	
-		} else {
-			
-			System.out.println("MARK THE TASK AS INCOMPLETE?");
-			System.out.print("Y/N : ");
-			temp = sc.next();
-			temp = temp.toUpperCase();
-			
-			if(!temp.equals("Y") || !temp.equals("N"))
-			{
-				System.err.println("INVALID INPUT");
-				isCompletedCheck();
-			}
-			
-			if(temp.equals("Y")){
-				return isCompleted = false;
-			} else {
-				return isCompleted = true;
-			}
-		}
+		isCompleted = true;
+		return isCompleted;
 	}
 	
-	protected String printStatus()
+	protected String checkCompletion()
 	{
 		if(isCompleted = true)
 		{
-			return "COMPLETE";
+			return "COMPLETED";
 			
 		}else {
 			return "INCOMPLETE";
@@ -272,13 +234,34 @@ public class Task {
 	protected void displaySubtask()
 	{
 		String output;
-		for(int i = 1; i <= subtasks.size(); i++)
-		{
-			output = i + ". " + subtasks.get(i-1);
-			System.out.println(output);
+		if(subtasks.isEmpty() == true) {
+			System.out.println("THERE'S NO SUBTASK");
+		}else {
+			for(int i = 1; i <= subtasks.size(); i++)
+			{
+				output = i + ". " + subtasks.get(i-1);
+				System.out.println(output);
+			}
 		}
 		
 		System.out.println("");
+	}
+	
+	protected void deleteSubtask()
+	{
+		System.out.print("INDEX OF THE SUBTASK YOU WISH TO REMOVE: ");
+		int i = sc.nextInt();
+		
+		try {
+			subtasks.remove(i-1);
+			System.out.println("SUBTASK REMOVED");
+			
+			for(int x = i-1; x <= subtasks.size(); x++){
+				subtasks.set(x, subtasks.get(x+1));
+			}
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("INDEX IS OUT OF RANGE");
+		}
 	}
 }
      
