@@ -1,8 +1,6 @@
 package com.group1.project1.anyDont;
 
-import java.util.Scanner;
-import java.util.Date;
-import java.util.Calendar;
+import java.util.*;
 import java.text.SimpleDateFormat;
 
 public class Task {
@@ -19,17 +17,19 @@ public class Task {
 	private SimpleDateFormat sdf;
 	private boolean isRepeating;
 	private boolean isCompleted;
+	private ArrayList<String> subtasks;
 	
-	public Task()
+	protected Task()
 	{
 		sc = new Scanner(System.in);
 		note = null;
 		description = null;
 		date = null;
 		sdf = new SimpleDateFormat("MM/dd/yyyy - HH:mm");
+		subtasks = new ArrayList<String>();
 	}
 	
-	public String getDescription()
+	protected String getDescription()
 	{
 		System.out.print("I WANT TO: ");
 		String description = sc.nextLine();
@@ -37,22 +37,23 @@ public class Task {
 		return description;
 	}
 	
-	public String printDescription()
+	protected String printDescription()
 	{
 		return description;
 	}
 	
-	public String getNote()
+	protected String getNote()
 	{
 		String note = sc.nextLine();
 		return note;
 	}
 	
-	public int getMonth()
+	protected int getMonth()
 	{
 		System.out.print("MONTH(1-12): ");
 		month = sc.nextInt();
-		while(month < 1 || month > 12){
+		while(month < 1 || month > 12)
+		{
 			System.err.println("INVALID INPUT");
 			System.out.print("MONTH(1-12): ");
 			month = sc.nextInt();
@@ -61,7 +62,7 @@ public class Task {
 		return month;
 	}
 		
-	public int getDay(int year, int month)
+	protected int getDay(int year, int month)
 	{
 		if(month == 2)
 		{
@@ -71,9 +72,9 @@ public class Task {
 				day = sc.nextInt();
 				while(day < 1 || day > 28)
 				{
-						System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
-						System.out.print("ENTER DAY(1-28): ");
-						day = sc.nextInt();
+					System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
+					System.out.print("ENTER DAY(1-28): ");
+					day = sc.nextInt();
 				}
 			}else {
 				System.out.print("DAY(1-29): ");
@@ -82,7 +83,7 @@ public class Task {
 				{
 					System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
 					System.out.print("DAY(1-29): ");
-						day = sc.nextInt();
+					day = sc.nextInt();
 				}
 			}
 		}
@@ -95,7 +96,7 @@ public class Task {
 			{
 				System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
 				System.out.print("DAY(1-31): ");
-					day = sc.nextInt();
+				day = sc.nextInt();
 			}
 		}
 		
@@ -107,14 +108,14 @@ public class Task {
 			{
 				System.err.println("INPUT DAY DOES NOT EXIST IN THIS MONTH");
 				System.out.print("DAY(1-30): ");
-					day = sc.nextInt();
+				day = sc.nextInt();
 			}
 		}
 		
 		return day;
 	}
 	
-	public int getYear()
+	protected int getYear()
 	{
 		System.out.print("YEAR: ");
 		year = sc.nextInt();
@@ -128,7 +129,7 @@ public class Task {
 		return year;
 	}
 	
-	public boolean isLeapYear(int year)
+	protected boolean isLeapYear(int year)
 	{
 		if(year % 4 == 0) 
 			return true;
@@ -136,7 +137,7 @@ public class Task {
 			return false;
 	}
 	
-	public int getHour()
+	protected int getHour()
 	{
 		System.out.print("HOUR(0-23): ");
 		hour = sc.nextInt();
@@ -150,7 +151,7 @@ public class Task {
 		return hour;
 	}
 	
-	public int getMinute()
+	protected int getMinute()
 	{
 		System.out.print("MINUTE(0-59): ");
 		minute = sc.nextInt();
@@ -164,7 +165,7 @@ public class Task {
 		return minute;
 	}
 	
-	public void setTime()
+	protected void setTime()
 	{
 		getYear();
 		getMonth();
@@ -174,7 +175,7 @@ public class Task {
 		setDate(year, month, day, hour, minute);
 	}
 	
-	public void setDate(int year, int month, int day, int hour, int minute)
+	protected void setDate(int year, int month, int day, int hour, int minute)
 	{
 		Calendar cal = Calendar.getInstance();
 		cal.set(year, month, day, hour, minute);
@@ -182,7 +183,7 @@ public class Task {
 		date = sdf.format(taskDate);
 	}
 	
-	public String printDate()
+	protected String printDate()
 	{
 		return date;
 	}
@@ -194,7 +195,7 @@ public class Task {
 		String temp;
 		if(!isRepeating) {
 			return isRepeating = false;
-		}else {
+		} else {
 			System.out.println("REPEAT TASK?");
 			System.out.print("Y/N : ");
 			temp = sc.next();
@@ -207,7 +208,7 @@ public class Task {
 			if(temp.equals("Y")){
 				return isRepeating = true;
 				//CreateTask();
-			}else{
+			} else {
 				return isRepeating = false;
 			}
 		}
@@ -215,10 +216,9 @@ public class Task {
 	
 	protected void isRepeatingSwitch()
 	{
-		if(isRepeating = true)
-		{
+		if(isRepeating = true){
 			isRepeating = false;
-		}else {
+		} else {
 			isRepeating = true;
 		}
 	}
@@ -227,8 +227,8 @@ public class Task {
 	{
 		String temp;
 		if(!isCompleted){
-			return isCompleted = true;
-		}else{
+			return isCompleted = true;	
+		} else {
 			
 			System.out.println("MARK THE TASK AS INCOMPLETE?");
 			System.out.print("Y/N : ");
@@ -243,13 +243,13 @@ public class Task {
 			
 			if(temp.equals("Y")){
 				return isCompleted = false;
-			}else{
+			} else {
 				return isCompleted = true;
 			}
 		}
 	}
 	
-	public String printStatus()
+	protected String printStatus()
 	{
 		if(isCompleted = true)
 		{
@@ -259,6 +259,26 @@ public class Task {
 			return "INCOMPLETE";
 		}
 		
+	}
+	
+	protected void addSubtask()
+	{
+		System.out.print("DESCRIBE YOUR SUBTASK: ");
+		String temp = sc.nextLine();
+		
+		subtasks.add(temp);
+	}
+	
+	protected void displaySubtask()
+	{
+		String output;
+		for(int i = 1; i <= subtasks.size(); i++)
+		{
+			output = i + ". " + subtasks.get(i-1);
+			System.out.println(output);
+		}
+		
+		System.out.println("");
 	}
 }
      
