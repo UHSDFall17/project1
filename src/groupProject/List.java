@@ -3,7 +3,7 @@
 import java.util.*;
 import java.io.File;
 
-public class List {
+public class List extends User{
 	
 	Scanner sc;
 	private String listName;
@@ -27,11 +27,16 @@ public class List {
 		return listName;
 	}
 	
+	protected ArrayList<Task> taskList()
+	{
+		return taskList;
+	}
+	
 	protected int listFunction()
 	{
 		int op;
 		do{
-			print("HELLO, WHAT WOULD YOU LIKE TO DO?");  //INSERT USERNAME LATER
+			print("HELLO " + username + ", WHAT WOULD YOU LIKE TO DO?");  //INSERT USERNAME LATER
 			print("1: DISPLAY TASKS");
 			print("2: CREATE NEW TASK");
 			print("3: EDIT A TASK");
@@ -47,7 +52,7 @@ public class List {
 			case 3: editTask(); break;
 			case 4: markTask(); break;
 			case 5: removeTask(); break;
-			case 6: break;
+			case 6: return 1;
 			default: print("INVALID INDEX");
 			}
 		} while(op != 6);

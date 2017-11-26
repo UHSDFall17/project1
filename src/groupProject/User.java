@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class User {
 	
-	private String username = "";
+	protected String username = "";
 	private String password="";
 	private String email = "";
 	public static String[] userName_passwords;
