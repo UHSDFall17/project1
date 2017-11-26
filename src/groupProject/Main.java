@@ -182,5 +182,44 @@ public class Main {
         	ex.printStackTrace();
         }
 	}
+	
+	protected static void saveData()
+	{
+		
+		FileWriter fw = null;
+		
+		try {
+			File file = new File(username + ".txt");
+			if(file.exists()){
+            	fw = new FileWriter(file, false);
+            	 //fw.append(System.getProperty("line.separator"));
+			}
+            else
+            {
+            	fw = new FileWriter(file, true);
+            }
+			for(int i = 0; i < lists.size(); i++)
+			{
+				ArrayList<Task> taskList = lists.get(i).taskList();
+				for(int j = 0; j < taskList.size(); j++) 
+				{
+					String description = taskList.get(j).description(); // TASK NAME
+					String note = taskList.get(j).note(); // NOTE IF IT EXISTS
+					String duedate = taskList.get(j).date(); // formatted to "MM/dd/yyyy h:mm a"
+					String status = taskList.get(j).status();  //COMPLETE OR IMCOMPLETE
+					
+					fw.append("~");
+					fw.append(description);
+					fw.append(duedate);
+					fw.append(status);
+					fw.append(note);
+				}
+			}
+            fw.flush();
+            fw.close();
+        } catch (IOException ex) {
+        	ex.printStackTrace();
+        }
+	}
 }
 
