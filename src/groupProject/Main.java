@@ -1,4 +1,7 @@
 package com.group1.project1.anyDont;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 //Created by James Rodgers
 import java.util.Scanner;
@@ -42,10 +45,14 @@ public class Main {
 			}
 		}
 		GreetingsMessage();		
+		saveData(username, usersTask);
 		scanner.close();
 	}
 	
 	public static void GreetingsMessage(){
+		
+		System.out.println("write to file");
+		
 		
 		if(accountType.equals("Corporate"))
 		{
@@ -149,6 +156,33 @@ public class Main {
 		String name = sc.nextLine();
 		List newlist = new List(name);
 		lists.add(newlist);
+	}
+	
+	public static void saveData(String Username, String[] Task)
+	{
+		
+		FileWriter fw = null;
+		
+		try {
+			File file = new File(Username + ".txt");
+			if(file.exists()){
+            	fw = new FileWriter(file, false);
+            	 //fw.append(System.getProperty("line.separator"));
+			}
+            else
+            {
+            	fw = new FileWriter(file, true);
+            }
+			for(String i: Task)
+			{
+				fw.append("~");
+				fw.append(i);
+			}
+            fw.flush();
+            fw.close();
+        } catch (IOException ex) {
+        	ex.printStackTrace();
+        }
 	}
 }
 
