@@ -1,6 +1,7 @@
 package groupProject;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ public class Main {
 		}
 		GreetingsMessage();		
 		saveNewData();
+		AddNewDateToExistingList();
 		scanner.close();
 	}
 	
@@ -159,7 +161,7 @@ public class Main {
 		
 	private static void AddTask()
 	{
-		System.out.println("Enter Name of New List you want to add a task to:");
+		System.out.println("Enter Name of the List you want to add a task to:");
 		String temp = scanner.nextLine().trim();
 		
 		temp = "Main " + temp;
@@ -250,6 +252,66 @@ public class Main {
 			{
 				fw.append("~");
 				fw.append(simpleList.get(i));
+			}
+            fw.flush();
+            fw.close();
+        } catch (IOException ex) {
+        	ex.printStackTrace();
+        }
+	}
+	
+	public static void AddNewDateToExistingList()
+	{
+		ArrayList<String> temp = new ArrayList<String>();
+		
+		Scanner profileInformation = null;
+		try 
+		{
+			profileInformation = new Scanner(new FileInputStream(username + ".txt"));
+		}
+		catch(IOException e)
+		{
+			System.out.println("User Profile file not found");
+		}
+		profileInformation.useDelimiter("~");
+		while(profileInformation.hasNext())
+		{
+			temp.add(profileInformation.next().trim());
+		}	
+		
+		for(int i=0; i < temp.size(); i++)
+		{
+			if(temp.get(i).equals(simpleAddList.get(0)))
+			{
+				for(int j=0; j<simpleAddList.size(); j++)
+				{
+					temp.add(i+1, simpleAddList.get(j));
+				}
+			}
+		}
+		profileInformation.close();
+		saveNewAddData(temp);
+	}
+	
+	public static void saveNewAddData(ArrayList<String> list)
+	{
+		
+		FileWriter fw = null;
+		
+		try {
+			File file = new File(username + ".txt");
+			if(file.exists()){
+            	fw = new FileWriter(file, false);
+            	 //fw.append(System.getProperty("line.separator"));
+			}
+            else
+            {
+            	fw = new FileWriter(file, true);
+            }
+			for(int i=0; i < list.size(); i++)
+			{
+				fw.append("~");
+				fw.append(list.get(i));
 			}
             fw.flush();
             fw.close();

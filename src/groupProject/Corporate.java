@@ -1,4 +1,5 @@
 package groupProject;
+//Created by James Rodgers
 
 import java.io.File;
 import java.io.FileInputStream;

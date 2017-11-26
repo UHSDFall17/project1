@@ -1,4 +1,5 @@
 package groupProject;
+//Created by James Rodgers
 
 public class Student {
 	private String username = "", schoolName = "";
