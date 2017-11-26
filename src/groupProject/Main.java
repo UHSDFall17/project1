@@ -14,6 +14,7 @@ public class Main {
 	private static String email = "", password="", domain = "";
 	private static String accountType = "";
 	public static String[] usersTask;
+	public static Scanner scanner = new Scanner(System.in);
 	public static boolean finished = false;
 	static HomePage homePageVariable = new HomePage();
 	static User user = new User();
@@ -22,7 +23,6 @@ public class Main {
 	static ArrayList<String> simpleAddList = new ArrayList<String>();
 	
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
 		username = scanner.nextLine().trim();
 		while(finished == false)
@@ -46,7 +46,7 @@ public class Main {
 			}
 		}
 		GreetingsMessage();		
-		saveData(username, usersTask);
+		saveNewData();
 		scanner.close();
 	}
 	
@@ -76,8 +76,6 @@ public class Main {
 	
 	static void returningUser()
 	{
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("password: ");
 		password = scanner.nextLine();
 		password = password.trim();
@@ -107,8 +105,6 @@ public class Main {
 	
 	static void createNewUser()
 	{
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter desired username: ");
 		username = scanner.nextLine().trim();
 		user.setUsername(username);
@@ -133,15 +129,13 @@ public class Main {
 	}
 
 	static void homePage(){
-		Scanner scanner = new Scanner(System.in);
 		homePageVariable.homePageFunction(username, usersTask, accountType);
-		while(!user_decision.equals("X") || user_decision.equals("x"))
+		while(!user_decision.equals("X") && !user_decision.equals("x"))
 		{
-			System.out.println("If you want to create a new list enter L:\n If you want to create a new task enter T\n If you want to logout press X.");
+			System.out.println("If you want to create a new list enter L: \nIf you want to create a new task enter T \nIf you want to logout press X.");
 			user_decision = scanner.nextLine().trim();
-			scanner.close();
-			homePageVariable.setUser_Decision(user_decision);
-			homePageVariable.userDecision(user_decision);
+			//homePageVariable.setUser_Decision(user_decision);
+			//homePageVariable.userDecision(user_decision);
 			
 			if(user_decision.equals("L") || user_decision.equals("l")) 
 			{
@@ -157,18 +151,14 @@ public class Main {
 	
 	static void createList() 
 	{
-		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in);
 		System.out.print("Name of the list: ");
-		String name = sc.nextLine();
+		String name = scanner.nextLine();
 		List newlist = new List(name);
 		lists.add(newlist);
 	}
 		
 	private static void AddTask()
 	{
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Name of New List you want to add a task to:");
 		String temp = scanner.nextLine().trim();
 		
@@ -189,27 +179,20 @@ public class Main {
 				{
 					temp = "DueDate " + temp;
 					simpleAddList.add(temp);
-				}
-				System.out.println("Type Due Date to add to the Task or type Skip");
-				temp = scanner.nextLine().trim();
-				if(!temp.equals("Skip"))
-				{
-					temp = "DueDate " + temp;
-					simpleAddList.add(temp);
 				}	
 				else
 				{
 					temp = "DueDate NO Due Date";
 					simpleAddList.add(temp);
-				}				
+				}		
+				temp = "Checked uncheck";
+				simpleAddList.add(temp);
 			}			
 		}
 	}
 	
 	private static void NewList()
 	{
-		@SuppressWarnings("resource")
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Name of New List:");
 		String temp = scanner.nextLine().trim();
 		
@@ -230,31 +213,26 @@ public class Main {
 				{
 					temp = "DueDate " + temp;
 					simpleList.add(temp);
-				}
-				System.out.println("Type Due Date to add to the Task or type Skip");
-				temp = scanner.nextLine().trim();
-				if(!temp.equals("Skip"))
-				{
-					temp = "DueDate " + temp;
-					simpleList.add(temp);
 				}	
 				else
 				{
 					temp = "DueDate NO Due Date";
 					simpleList.add(temp);
-				}				
+				}		
+				temp = "Checked uncheck";
+				simpleList.add(temp);
 			}			
 		}
 		
 	}
 
-	public static void saveData(String Username, String[] Task)
+	public static void saveNewData()
 	{
 		
 		FileWriter fw = null;
 		
 		try {
-			File file = new File(Username + ".txt");
+			File file = new File(username + ".txt");
 			if(file.exists()){
             	fw = new FileWriter(file, false);
             	 //fw.append(System.getProperty("line.separator"));
@@ -263,10 +241,15 @@ public class Main {
             {
             	fw = new FileWriter(file, true);
             }
-			for(String i: Task)
+			for(String i: usersTask)
 			{
 				fw.append("~");
 				fw.append(i);
+			}
+			for(int i=0; i < simpleList.size(); i++)
+			{
+				fw.append("~");
+				fw.append(simpleList.get(i));
 			}
             fw.flush();
             fw.close();
