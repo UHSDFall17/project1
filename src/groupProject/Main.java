@@ -1,9 +1,14 @@
 package groupProject;
+
+
+
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 //Created by James Rodgers
+//Modified by Yikchun and Napoleon
 import java.util.Scanner;
 
 public class Main {
@@ -16,12 +21,12 @@ public class Main {
 	static HomePage homePageVariable = new HomePage();
 	static User user = new User();
 	static ArrayList<List> lists = new ArrayList<List>();
+	static ArrayList<String> simpleList = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("      Welcome to Any Don't \n-----------------------------------\nEnter username or enter \"signup\"");
 		username = scanner.nextLine().trim();
-		username = username.trim();
 		while(finished == false)
 		{
 			if(username.trim().equals("signup"))
@@ -48,9 +53,6 @@ public class Main {
 	}
 	
 	public static void GreetingsMessage(){
-		
-		System.out.println("write to file");
-		
 		
 		if(accountType.equals("Corporate"))
 		{
@@ -135,27 +137,77 @@ public class Main {
 	static void homePage(){
 		Scanner scanner = new Scanner(System.in);
 		homePageVariable.homePageFunction(username, usersTask, accountType);
-		System.out.println("If you want to create a new list enter A, if you want to logout press X.");
-		user_decision = scanner.nextLine().trim();
-		scanner.close();
-		homePageVariable.setUser_Decision(user_decision);
-		homePageVariable.userDecision(user_decision);
-		
-		if(user_decision.equals("X") || user_decision.equals("x")) {
-			System.out.println("Have a good day!");
-			System.exit(0);
+		while(!user_decision.equals("X") || user_decision.equals("x"))
+		{
+			System.out.println("If you want to create a new list enter L:\n If you want to create a new task enter T\n If you want to logout press X.");
+			user_decision = scanner.nextLine().trim();
+			scanner.close();
+			homePageVariable.setUser_Decision(user_decision);
+			homePageVariable.userDecision(user_decision);
+			
+			if(user_decision.equals("L") || user_decision.equals("l")) 
+			{
+				NewList();
+			}
+			else if(user_decision.equals("T") || user_decision.equals("t"))
+			{
+				
+			}
 		}
+		System.out.println("Have a good day!");
 	}
 	
 	static void createList() 
 	{
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Name of the list: ");
 		String name = sc.nextLine();
 		List newlist = new List(name);
 		lists.add(newlist);
 	}
-	
+		
+	private static void NewList()
+	{
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Name of New List:");
+		String temp = scanner.nextLine().trim();
+		
+		temp = "Main " + temp;
+		simpleList.add(temp);
+		
+		while(!temp.equals("Finish"))
+		{
+			System.out.println("Type task to add a Task to the list or type Finish");
+			temp = scanner.nextLine().trim();
+			if(!temp.equals("Finish"))
+			{
+				temp = "Task " + temp;
+				simpleList.add(temp);
+				System.out.println("Type Due Date to add to the Task or type Skip");
+				temp = scanner.nextLine().trim();
+				if(!temp.equals("Skip"))
+				{
+					temp = "DueDate " + temp;
+					simpleList.add(temp);
+				}
+				System.out.println("Type Due Date to add to the Task or type Skip");
+				temp = scanner.nextLine().trim();
+				if(!temp.equals("Skip"))
+				{
+					temp = "DueDate " + temp;
+					simpleList.add(temp);
+				}	
+				else
+				{
+					temp = "DueDate NO Due Date";
+					simpleList.add(temp);
+				}				
+			}			
+		}
+		
+	}
 	public static void saveData(String Username, String[] Task)
 	{
 		
@@ -222,4 +274,3 @@ public class Main {
         }
 	}
 }
-
