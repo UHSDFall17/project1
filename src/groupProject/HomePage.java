@@ -1,4 +1,4 @@
-package com.group1.project1.anyDont;
+package groupProject;
 //created by Napoleon de Mesa
 
 import java.util.Scanner;

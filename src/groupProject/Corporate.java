@@ -1,4 +1,4 @@
-package com.group1.project1.anyDont;
+package groupProject;
 
 import java.io.File;
 import java.io.FileInputStream;

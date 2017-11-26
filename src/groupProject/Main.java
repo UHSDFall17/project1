@@ -1,12 +1,10 @@
-package com.group1.project1.anyDont;
+package groupProject;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 //Created by James Rodgers
 import java.util.Scanner;
-
-import com.group1.project1.anyDont.Task;
 
 public class Main {
 

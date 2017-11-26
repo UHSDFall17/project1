@@ -1,4 +1,4 @@
-package com.group1.project1.anyDont;
+package groupProject;
 
 public class Student {
 	private String username = "", schoolName = "";
