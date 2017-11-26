@@ -1,4 +1,4 @@
-﻿package com.group1.project1.anyDont;
+﻿package groupProject;
 
 import java.util.*;
 import java.io.File;
@@ -20,6 +20,11 @@ public class List {
 		listName = name;
 		sc = new Scanner(System.in);
 		taskList = new ArrayList<Task>();
+	}
+	
+	protected String getName()
+	{
+		return listName;
 	}
 	
 	protected int listFunction()
@@ -63,7 +68,7 @@ public class List {
 		}else {
 			print("");
 			for(int i = 1; i <= taskList.size(); i++){
-				output = i + ". " + taskList.get(i-1).printDescription() + " DUE: " + taskList.get(i-1).printDate() + " STATUS: " + taskList.get(i-1).checkCompletion();
+				output = i + ". " + taskList.get(i-1).description() + " DUE DATE: " + taskList.get(i-1).date() + " STATUS: " + taskList.get(i-1).status();
 				print(output);
 			}
 		}
@@ -92,7 +97,7 @@ public class List {
 		int i = sc.nextInt();
 		Task task = taskList.get(i-1);
 		print("");
-		print(task.printDescription());
+		print(task.description());
 		
 		int op;
 		do {

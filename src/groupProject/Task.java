@@ -1,4 +1,4 @@
-package com.group1.project1.anyDont;
+package groupProject;
 
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -25,7 +25,7 @@ public class Task {
 		note = null;
 		description = null;
 		date = null;
-		sdf = new SimpleDateFormat("MM/dd/yyyy - HH:mm");
+		sdf = new SimpleDateFormat("MM/dd/yyyy h:mm a");
 		isRepeating = false;
 		isCompleted = false;
 		subtasks = new ArrayList<String>();
@@ -39,7 +39,7 @@ public class Task {
 		return description;
 	}
 	
-	protected String printDescription()
+	protected String description()
 	{
 		return description;
 	}
@@ -47,6 +47,11 @@ public class Task {
 	protected String getNote()
 	{
 		String note = sc.nextLine();
+		return note;
+	}
+	
+	protected String note()
+	{
 		return note;
 	}
 	
@@ -63,7 +68,12 @@ public class Task {
 		
 		return month;
 	}
-		
+	
+	protected int month()
+	{
+		return month;
+	}	
+	
 	protected int getDay(int year, int month)
 	{
 		if(month == 2)
@@ -117,6 +127,11 @@ public class Task {
 		return day;
 	}
 	
+	protected int day()
+	{
+		return day;
+	}	
+	
 	protected int getYear()
 	{
 		System.out.print("YEAR: ");
@@ -130,6 +145,11 @@ public class Task {
 		
 		return year;
 	}
+	
+	protected int year()
+	{
+		return year;
+	}	
 	
 	protected boolean isLeapYear(int year)
 	{
@@ -153,6 +173,11 @@ public class Task {
 		return hour;
 	}
 	
+	protected int hour()
+	{
+		return hour;
+	}	
+	
 	protected int getMinute()
 	{
 		System.out.print("MINUTE(0-59): ");
@@ -166,6 +191,11 @@ public class Task {
 		
 		return minute;
 	}
+	
+	protected int minute()
+	{
+		return minute;
+	}	
 	
 	protected void setTime()
 	{
@@ -185,7 +215,8 @@ public class Task {
 		date = sdf.format(taskDate);
 	}
 	
-	protected String printDate()
+	
+	protected String date()
 	{
 		return date;
 	}
@@ -211,7 +242,7 @@ public class Task {
 		return isCompleted;
 	}
 	
-	protected String checkCompletion()
+	protected String status()
 	{
 		if(isCompleted = true)
 		{
