@@ -1,8 +1,5 @@
 package groupProject;
 
-
-
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,6 +19,7 @@ public class Main {
 	static User user = new User();
 	static ArrayList<List> lists = new ArrayList<List>();
 	static ArrayList<String> simpleList = new ArrayList<String>();
+	static ArrayList<String> simpleAddList = new ArrayList<String>();
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -151,7 +149,7 @@ public class Main {
 			}
 			else if(user_decision.equals("T") || user_decision.equals("t"))
 			{
-				
+				AddTask();
 			}
 		}
 		System.out.println("Have a good day!");
@@ -167,6 +165,47 @@ public class Main {
 		lists.add(newlist);
 	}
 		
+	private static void AddTask()
+	{
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Name of New List you want to add a task to:");
+		String temp = scanner.nextLine().trim();
+		
+		temp = "Main " + temp;
+		simpleAddList.add(temp);
+		
+		while(!temp.equals("Finish"))
+		{
+			System.out.println("Type task to add a Task to the list or type Finish");
+			temp = scanner.nextLine().trim();
+			if(!temp.equals("Finish"))
+			{
+				temp = "Task " + temp;
+				simpleAddList.add(temp);
+				System.out.println("Type Due Date to add to the Task or type Skip");
+				temp = scanner.nextLine().trim();
+				if(!temp.equals("Skip"))
+				{
+					temp = "DueDate " + temp;
+					simpleAddList.add(temp);
+				}
+				System.out.println("Type Due Date to add to the Task or type Skip");
+				temp = scanner.nextLine().trim();
+				if(!temp.equals("Skip"))
+				{
+					temp = "DueDate " + temp;
+					simpleAddList.add(temp);
+				}	
+				else
+				{
+					temp = "DueDate NO Due Date";
+					simpleAddList.add(temp);
+				}				
+			}			
+		}
+	}
+	
 	private static void NewList()
 	{
 		@SuppressWarnings("resource")
@@ -208,6 +247,7 @@ public class Main {
 		}
 		
 	}
+
 	public static void saveData(String Username, String[] Task)
 	{
 		
