@@ -104,6 +104,7 @@ public class HomePage {
     	int i = 0;
     	int k = 0;
     	int x = 0;
+    	int y = 0;
     	
     	Scanner scanner = new Scanner(System.in);
         usersTask2 = Task;
@@ -127,11 +128,18 @@ public class HomePage {
     	
     	
     	if(listToSee == 1) {
-        	while(i < Task.length)
-        	{
+        	while(i < Task.length) {
+        	
         	
         		if(usersTask2[i].contains("Main")) {
+        			if(y == 1) {
+            			y = 0;
+            			break;
+            		}
+        			
         			System.out.println(usersTask2[i].replace("Main", ""));
+        			
+        			y++;
         		}
         		else if(usersTask2[i].contains("Task")) {
         			System.out.println("   " + usersTask2[i].replace("Task", ""));
@@ -141,10 +149,12 @@ public class HomePage {
         		}
         		else if(usersTask2[i].contains("Checked")){
         			System.out.println("      " + usersTask2[i].replace("Checked", ""));
-        			if(usersTask2[i + 1].contains("Main") || usersTask2[i + 1].equals(null) || usersTask2[i + 1].isEmpty()) {
-            			break;
-            		}
         		}
+        		else {
+        			break;
+        		}
+        		
+        		
         		
         		i++;
         	}
@@ -163,11 +173,18 @@ public class HomePage {
         		i++;
         	}
         	
-        	while(i < Task.length)
-            {
+        	while(i < Task.length){
+            
             	
-            	if(usersTask2[i].contains("Main")) {
+            	if(usersTask2[i].contains("Main")) {            		
+            		if(y == 1) {
+            			y = 0;
+            			break;
+            		}
+            		
             		System.out.println(usersTask2[i].replace("Main", ""));
+            		
+            		y++;
             	}
             	else if(usersTask2[i].contains("Task")) {
             		System.out.println("   " + usersTask2[i].replace("Task", ""));
@@ -181,6 +198,8 @@ public class HomePage {
             	else {
             		break;
             	}
+            	
+            	
             	
             	i++;
             }
@@ -201,11 +220,18 @@ public class HomePage {
         		i++;
         	}
         	
-        	while(i < Task.length)
-            {
+        	while(i < Task.length) {
+            
             	
             	if(usersTask2[i].contains("Main")) {
-            		System.out.println(usersTask2[i].replace("Main", ""));
+            		if(y == 1) {
+            			y = 0;
+            			break;
+            		}
+        			
+        			System.out.println(usersTask2[i].replace("Main", ""));
+        			
+        			y++;
             	}
             	else if(usersTask2[i].contains("Task")) {
             		System.out.println("   " + usersTask2[i].replace("Task", ""));
@@ -220,6 +246,7 @@ public class HomePage {
             	else {
             		break;
             	}
+            	
             	
             	i++;
             }
@@ -240,11 +267,18 @@ public class HomePage {
         		i++;
         	}
         	
-        	while(i < Task.length)
-            {
+        	while(i < Task.length){
+            
             	
             	if(usersTask2[i].contains("Main")) {
-            		System.out.println(usersTask2[i].replace("Main", ""));
+            		if(y == 1) {
+            			y = 0;
+            			break;
+            		}
+        			
+        			System.out.println(usersTask2[i].replace("Main", ""));
+        			
+        			y++;
             	}
             	else if(usersTask2[i].contains("Task")) {
             		System.out.println("   " + usersTask2[i].replace("Task", ""));
@@ -278,11 +312,18 @@ public class HomePage {
         		i++;
         	}
         	
-        	while(i < Task.length)
-            {
+        	while(i < Task.length) {
+            
             	
             	if(usersTask2[i].contains("Main")) {
-            		System.out.println(usersTask2[i].replace("Main", ""));
+            		if(y == 1) {
+            			y = 0;
+            			break;
+            		}
+        			
+        			System.out.println(usersTask2[i].replace("Main", ""));
+        			
+        			y++;
             	}
             	else if(usersTask2[i].contains("Task")) {
             		System.out.println("   " + usersTask2[i].replace("Task", ""));
@@ -296,7 +337,7 @@ public class HomePage {
             	else {
             		break;
             	}
-            	
+
             	i++;
             }
         	
