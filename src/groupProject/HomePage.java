@@ -23,27 +23,39 @@ public class HomePage {
     //account type will be "regular", "student", "corporate"
     public void homePageFunction(String username, String[] existingTask,String accountType) {
                 
+    	String anotherList = null;
     	
-    	System.out.println("----------------------------------------------");
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.println("-----------------------------------");
         System.out.println("");
         usersTask = existingTask;
-	
-	
-	for(int i =0; i < existingTask.length; i++)
-        {
-        	if(usersTask[i].contains("Main")) {
-        		System.out.println(usersTask[i].replace("Main", ""));
-        	}
-        	else if(usersTask[i].contains("Task")) {
-        		System.out.println("   " + usersTask[i].replace("Task", ""));
-        	}
-        	else if(usersTask[i].contains("DueDate")){
-        		System.out.println("      " + usersTask[i].replace("DueDate", ""));
-        	}
-        	else if(usersTask[i].contains("Checked")){
-        		System.out.println("      " + usersTask[i].replace("Checked", ""));
-        	}
-        }
+        
+        displayList(usersTask);
+        
+        System.out.println("");
+        System.out.println("Which list would you like to see: ");
+        System.out.println("(Please enter a number with respect to the displayed lists. e.g. 1 for the first list or 2 for the second)");
+        System.out.println("");
+        
+        
+        displayTask(usersTask);
+        
+        
+        System.out.println("Would you like to see another list? Enter Y or N:");
+        anotherList = scanner.nextLine();
+        
+        while(anotherList.equals("Y") || anotherList.equals("y")) {
+    	    displayList(usersTask);
+    	   
+     	    System.out.println("");
+            System.out.println("Which list would you like to see: ");
+            System.out.println("(Please enter a number with respect to the displayed lists. e.g. 1 for the first list or 2 for the second)");
+            System.out.println("");
+           
+            displayTask(usersTask);
+            
+            System.out.println("Would you like to see another list? Enter Y or N:");
+            anotherList = scanner.nextLine();
         
     }
     
