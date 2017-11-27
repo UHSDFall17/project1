@@ -82,5 +82,20 @@ public class HomePage {
         
         
     }
+	    
+    public void displayList(String[] existingTask) {
+    	
+    	System.out.println("Your lists are as follows: ");
+        
+        for(int j = 0; j < existingTask.length; j++) {
+        	if(usersTask[j].contains("Main")) {
+        		System.out.println(usersTask[j].replace("Main", ""));
+        	}
+        	
+        }
+        
+    }
+	    
+    
     
 }
