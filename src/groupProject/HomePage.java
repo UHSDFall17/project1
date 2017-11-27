@@ -8,6 +8,7 @@ public class HomePage {
    
 	String user_decision = "";
 	public static String[] usersTask;
+	public static String[] usersTask2;
 	
     
     public String getUser_Decision(){
