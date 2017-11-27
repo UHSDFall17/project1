@@ -9,7 +9,6 @@ public class HomePage {
 	String user_decision = "";
 	public static String[] usersTask;
 	public static String[] usersTask2;
-	
     
     public String getUser_Decision(){
         return this.user_decision;
@@ -56,6 +55,10 @@ public class HomePage {
             
             System.out.println("Would you like to see another list? Enter Y or N:");
             anotherList = scanner.nextLine();
+        }
+        
+        
+
         
     }
     
@@ -82,7 +85,7 @@ public class HomePage {
         
         
     }
-	    
+    
     public void displayList(String[] existingTask) {
     	
     	System.out.println("Your lists are as follows: ");
@@ -95,7 +98,7 @@ public class HomePage {
         }
         
     }
-	    
+    
     public void displayTask(String[] Task) {
 
     	int i = 0;
