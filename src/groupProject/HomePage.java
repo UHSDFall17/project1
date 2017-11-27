@@ -96,6 +96,210 @@ public class HomePage {
         
     }
 	    
-    
+    public void displayTask(String[] Task) {
+
+    	int i = 0;
+    	int k = 0;
+    	int x = 0;
+    	
+    	Scanner scanner = new Scanner(System.in);
+        usersTask2 = Task;
+        
+        for(int j = 0; j < Task.length; j++) {
+        	if(usersTask[j].contains("Main")) {
+        		x++;
+        	}
+        	
+        }
+        
+        
+        
+        
+        int listToSee = scanner.nextInt();
+        
+        while(listToSee > x || listToSee < 0) {
+        	System.out.println("Please enter a number 0-" + x + " :");
+        	listToSee = scanner.nextInt();
+        }
+    	
+    	
+    	if(listToSee == 1) {
+        	while(i < Task.length)
+        	{
+        	
+        		if(usersTask2[i].contains("Main")) {
+        			System.out.println(usersTask2[i].replace("Main", ""));
+        		}
+        		else if(usersTask2[i].contains("Task")) {
+        			System.out.println("   " + usersTask2[i].replace("Task", ""));
+        		}
+        		else if(usersTask2[i].contains("DueDate")){
+        			System.out.println("      " + usersTask2[i].replace("DueDate", ""));
+        		}
+        		else if(usersTask2[i].contains("Checked")){
+        			System.out.println("      " + usersTask2[i].replace("Checked", ""));
+        			if(usersTask2[i + 1].contains("Main") || usersTask2[i + 1].equals(null) || usersTask2[i + 1].isEmpty()) {
+            			break;
+            		}
+        		}
+        		
+        		i++;
+        	}
+        }
+        else if(listToSee == 2){
+        	
+        	while(i < Task.length) {
+        		
+        		if(usersTask2[i].contains("Main")) {
+            		k++;
+            		if(k == listToSee) {
+            			break;
+            		}
+            	}
+        		
+        		i++;
+        	}
+        	
+        	while(i < Task.length)
+            {
+            	
+            	if(usersTask2[i].contains("Main")) {
+            		System.out.println(usersTask2[i].replace("Main", ""));
+            	}
+            	else if(usersTask2[i].contains("Task")) {
+            		System.out.println("   " + usersTask2[i].replace("Task", ""));
+            	}
+            	else if(usersTask2[i].contains("DueDate")){
+            		System.out.println("      " + usersTask2[i].replace("DueDate", ""));
+            	}
+            	else if(usersTask2[i].contains("Checked")){
+            		System.out.println("      " + usersTask2[i].replace("Checked", ""));
+            	}
+            	else {
+            		break;
+            	}
+            	
+            	i++;
+            }
+        	
+        	
+        }
+        else if(listToSee == 3){
+        	
+        	while(i < Task.length) {
+        		
+        		if(usersTask2[i].contains("Main")) {
+            		k++;
+            		if(k == listToSee) {
+            			break;
+            		}
+            	}
+        		
+        		i++;
+        	}
+        	
+        	while(i < Task.length)
+            {
+            	
+            	if(usersTask2[i].contains("Main")) {
+            		System.out.println(usersTask2[i].replace("Main", ""));
+            	}
+            	else if(usersTask2[i].contains("Task")) {
+            		System.out.println("   " + usersTask2[i].replace("Task", ""));
+            	}
+            	else if(usersTask2[i].contains("DueDate")){
+            		System.out.println("      " + usersTask2[i].replace("DueDate", ""));
+            	}
+            	else if(usersTask2[i].contains("Checked")){
+            		System.out.println("      " + usersTask2[i].replace("Checked", ""));
+            		
+            	}
+            	else {
+            		break;
+            	}
+            	
+            	i++;
+            }
+        	
+        	
+        }
+        else if(listToSee == 4){
+        	
+        	while(i < Task.length) {
+        		
+        		if(usersTask2[i].contains("Main")) {
+            		k++;
+            		if(k == listToSee) {
+            			break;
+            		}
+            	}
+        		
+        		i++;
+        	}
+        	
+        	while(i < Task.length)
+            {
+            	
+            	if(usersTask2[i].contains("Main")) {
+            		System.out.println(usersTask2[i].replace("Main", ""));
+            	}
+            	else if(usersTask2[i].contains("Task")) {
+            		System.out.println("   " + usersTask2[i].replace("Task", ""));
+            	}
+            	else if(usersTask2[i].contains("DueDate")){
+            		System.out.println("      " + usersTask2[i].replace("DueDate", ""));
+            	}
+            	else if(usersTask2[i].contains("Checked")){
+            		System.out.println("      " + usersTask2[i].replace("Checked", ""));
+            	}
+            	else {
+            		break;
+            	}
+            	
+            	i++;
+            }
+        	
+        	
+        }
+        else if(listToSee == 5){
+        	
+        	while(i < Task.length) {
+        		
+        		if(usersTask2[i].contains("Main")) {
+            		k++;
+            		if(k == listToSee) {
+            			break;
+            		}
+            	}
+        		
+        		i++;
+        	}
+        	
+        	while(i < Task.length)
+            {
+            	
+            	if(usersTask2[i].contains("Main")) {
+            		System.out.println(usersTask2[i].replace("Main", ""));
+            	}
+            	else if(usersTask2[i].contains("Task")) {
+            		System.out.println("   " + usersTask2[i].replace("Task", ""));
+            	}
+            	else if(usersTask2[i].contains("DueDate")){
+            		System.out.println("      " + usersTask2[i].replace("DueDate", ""));
+            	}
+            	else if(usersTask2[i].contains("Checked")){
+            		System.out.println("      " + usersTask2[i].replace("Checked", ""));
+            	}
+            	else {
+            		break;
+            	}
+            	
+            	i++;
+            }
+        	
+        	
+        }
+    	
+    }
     
 }
