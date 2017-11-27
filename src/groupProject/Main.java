@@ -1,5 +1,4 @@
 package groupProject;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -47,8 +46,15 @@ public class Main {
 			}
 		}
 		GreetingsMessage();		
-		saveNewData();
-		AddNewDateToExistingList();
+		if(simpleList.size() > 1)
+		{
+			saveNewData();
+		}
+		if(simpleAddList.size() > 1)
+		{
+			saveNewData();
+			AddNewDateToExistingList();
+		}
 		scanner.close();
 	}
 	
@@ -279,16 +285,21 @@ public class Main {
 			temp.add(profileInformation.next().trim());
 		}	
 		
-		for(int i=0; i < temp.size(); i++)
+		int tempSize = temp.size(), addListSize = simpleAddList.size(), i =0;
+		boolean added = false;
+		while( (i < tempSize) && !added)
 		{
 			if(temp.get(i).equals(simpleAddList.get(0)))
 			{
-				for(int j=0; j<simpleAddList.size(); j++)
+				for(int j=1; j<addListSize; j++)
 				{
-					temp.add(i+1, simpleAddList.get(j));
+					temp.add(i+j, simpleAddList.get(j));
+					added = true;
 				}
 			}
+			i++;
 		}
+		
 		profileInformation.close();
 		saveNewAddData(temp);
 	}
@@ -359,3 +370,5 @@ public class Main {
         }
 	}
 }
+
+
