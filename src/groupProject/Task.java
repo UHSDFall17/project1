@@ -68,18 +68,27 @@ public class Task {
 		return note;
 	}
 	
-	protected int getMonth()
+	protected void addMonth()
 	{
 		System.out.print("Month(1-12): ");
-		month = sc.nextInt();
+		int month = sc.nextInt();
 		while(month < 1 || month > 12)
 		{
 			System.err.println("INVALID MONTH");
 			System.out.println("Month(1-12): ");
 			month = sc.nextInt();
 		}
-		
-		return month;
+		setMonth(month);
+	}
+	
+	public void setMonth(int month)
+	{
+		this.month = month;
+	}
+	
+	public int getMonth()
+	{
+		return this.month;
 	}
 	
 	protected int month()
@@ -213,7 +222,7 @@ public class Task {
 	protected void setTime()
 	{
 		getYear();
-		getMonth();
+		addMonth();
 		getDay(year, month);
 		getHour();
 		getMinute();
@@ -309,6 +318,5 @@ public class Task {
 		}
 	}
 }
-     
         
  

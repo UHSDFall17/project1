@@ -169,19 +169,23 @@ public class List extends HomePage{
 	
 	protected void removeTask()
 	{
+		boolean blah = false;
 		if(!taskList.isEmpty()) {
 			try {
 				System.out.print("Index of the task to be removed: ");
 				int i = sc.nextInt();
 				taskList.remove(i-1);
 				print("Task removed");
-			
+				blah=true;
 				//sort remaining tasks;
 				for(int x = i-1; x <= taskList.size(); x++){
 					taskList.set(x, taskList.get(x+1));
 				}
 			} catch (IndexOutOfBoundsException e) {
-				System.err.println("Invalid index, returning to List");
+				if(!blah)
+				{
+					System.err.println("Invalid index, returning to List");
+				}
 			}
 		} else {
 			print(listName + " is empty");
