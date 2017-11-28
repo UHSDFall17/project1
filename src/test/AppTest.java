@@ -238,7 +238,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Get_Month()
+	public void test_Task_Get_Month()
 	{
 		Task test = new Task();
 		test.setMonth(3);		
@@ -248,7 +248,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Set_Month()
+	public void test_Task_Set_Month()
 	{
 		Task test = new Task();
 		test.setMonth(3);		
@@ -258,7 +258,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Set_Year()
+	public void test_Task_Set_Year()
 	{
 		Task test = new Task();
 		test.setYear(2018);		
@@ -268,7 +268,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Get_Year()
+	public void test_Task_Get_Year()
 	{
 		Task test = new Task();
 		test.setYear(2018);		
@@ -278,7 +278,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Get_Hour()
+	public void test_Task_Get_Hour()
 	{
 		Task test = new Task();
 		test.setHour(4);		
@@ -288,7 +288,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Set_Hour()
+	public void test_Task_Set_Hour()
 	{
 		Task test = new Task();
 		test.setHour(4);		
@@ -298,7 +298,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Set_Minute()
+	public void test_Task_Set_Minute()
 	{
 		Task test = new Task();
 		test.setMinute(40);		
@@ -308,7 +308,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Get_Minute()
+	public void test_Task_Get_Minute()
 	{
 		Task test = new Task();
 		test.setMinute(40);		
@@ -318,7 +318,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Get_Date()
+	public void test_Task_Get_Date()
 	{
 		Task test = new Task();
 		test.setDate(2018, 1, 4, 5, 30);		
@@ -328,7 +328,7 @@ public class AppTest extends TestCase {
 	}
 	
 	@Test
-	public void test_List_Set_Date()
+	public void test_Task_Set_Date()
 	{
 		Task test = new Task();
 		test.setDate(2018, 1, 4, 17, 30);		
