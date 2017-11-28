@@ -216,6 +216,27 @@ public class AppTest extends TestCase {
 		String result = test.getSchoolName();
 		assertEquals(expectation, result);
 	}
+	
+	@Test
+	public void test_Corporate_Set_School_Name()
+	{
+		Corporate test = new Corporate();
+		test.setCorpName("stop.com");		
+		String expectation = "Stop";
+		String result = test.getCorpName();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_Corporate_Get_School_Name()
+	{
+		Corporate test = new Corporate();
+		test.setCorpName("intel.com");		
+		String expectation = "Intel";
+		String result = test.getCorpName();
+		assertEquals(expectation, result);
+	}
+	
 //	@Test
 //	public void test_Returning_User_File_Downloaded()
 //	{
