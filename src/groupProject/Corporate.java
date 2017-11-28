@@ -85,9 +85,4 @@ public class Corporate {
 		this.company =  emailDomain.substring(0, emailDomain.indexOf("."));
 		this.company = this.company.substring(0,1).toUpperCase() + this.company.substring(1);
 	}
-	
-	public String getSchoolName()
-	{
-		return this.company;
-	}
 }
