@@ -47,6 +47,17 @@ public class AppTest extends TestCase {
 	}	
 
 	@Test
+	public void test_new_User_does_not_have_unique_username()
+	{
+		User newUserVariable = new User();
+		newUserVariable.setUsername("testing");
+		newUserVariable.setPassword("testing");
+		boolean expectation = false;
+		boolean result = newUserVariable.uniqueUsernames();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
 	public void test_new_User_Credential_appended()
 	{
 		User newUserVariable = new User();
@@ -66,17 +77,6 @@ public class AppTest extends TestCase {
 		boolean expectation = true;
 		//checks that they were appended
 		boolean result = newUserVariable.credentialsConfirmed();
-		assertEquals(expectation, result);
-	}
-	
-	@Test
-	public void test_new_User_does_not_have_unique_username()
-	{
-		User newUserVariable = new User();
-		newUserVariable.setUsername("testing");
-		newUserVariable.setPassword("testing");
-		boolean expectation = false;
-		boolean result = newUserVariable.uniqueUsernames();
 		assertEquals(expectation, result);
 	}
 	
@@ -104,6 +104,17 @@ public class AppTest extends TestCase {
 		String result = test.userDomain();
 		assertEquals(expectation, result);
 	}
+	
+	@Test
+	public void test_User_Get_Username()
+	{
+		User test = new User();
+		test.setUsername("TestGetUsername");		
+		String expectation = "TestGetUsername";
+		String result = test.getUsername();
+		assertEquals(expectation, result);
+	}
+	
 	
 	@Test
 	public void test_Check_Corporate_Account()
@@ -172,6 +183,4 @@ public class AppTest extends TestCase {
 //		}
 //		assertEquals(expectation, userFileCreated);
 //	}
-
-	
 }
