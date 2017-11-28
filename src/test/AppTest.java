@@ -92,6 +92,18 @@ public class AppTest extends TestCase {
 		boolean result = returningUserVariable.credentialsConfirmed();
 		assertEquals(expectation, result);
 	}
+
+	
+	@Test
+	public void test_User_Domain_Function()
+	{
+		User test = new User();
+		test.setEmail("jrodgers@aol.com");
+		
+		String expectation = "aol.com";
+		String result = test.userDomain();
+		assertEquals(expectation, result);
+	}
 	
 	@Test
 	public void test_Check_Corporate_Account()
