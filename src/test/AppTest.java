@@ -317,6 +317,26 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 	
+	@Test
+	public void test_List_Get_Date()
+	{
+		Task test = new Task();
+		test.setDate(2018, 1, 4, 5, 30);		
+		String expectation = "1/4/2018 5:30AM";
+		String result = test.date();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_List_Set_Date()
+	{
+		Task test = new Task();
+		test.setDate(2018, 1, 4, 17, 30);		
+		String expectation = "1/4/2018 5:30PM";
+		String result = test.date();
+		assertEquals(expectation, result);
+	}
+	
 //	@Test
 //	public void test_Returning_User_File_Downloaded()
 //	{

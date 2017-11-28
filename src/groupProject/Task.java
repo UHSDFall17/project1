@@ -253,7 +253,7 @@ public class Task {
 		addMonth();
 		getDay(year, month);
 		addHour();
-		getMinute();
+		addMinute();
 		setDate(year, month, day, hour, minute);
 	}
 	
