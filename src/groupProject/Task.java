@@ -190,18 +190,27 @@ public class Task {
 			return false;
 	}
 	
-	protected int getHour()
+	protected void addHour()
 	{
 		System.out.print("Hour(0-23): ");
-		hour = sc.nextInt();
+		int hour = sc.nextInt();
 		while(hour < 0 || hour > 23)
 		{
 			System.err.println("INVALID INPUT");
 			System.out.println("Enter Hour(0-23): ");
 			hour = sc.nextInt();
 		}
-		
-		return hour;
+		setHour(hour);
+	}
+	
+	public void setHour(int hour)
+	{
+		this.hour = hour;
+	}
+	
+	public int getHour()
+	{
+		return this.hour;
 	}
 	
 	protected int hour()
@@ -233,7 +242,7 @@ public class Task {
 		addYear();
 		addMonth();
 		getDay(year, month);
-		getHour();
+		addHour();
 		getMinute();
 		setDate(year, month, day, hour, minute);
 	}

@@ -277,6 +277,17 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 	
+
+	@Test
+	public void test_List_Get_Hour()
+	{
+		Task test = new Task();
+		test.setHour(4);		
+		int expectation = 4;
+		int result = test.getHour();
+		assertEquals(expectation, result);
+	}
+	
 //	@Test
 //	public void test_Returning_User_File_Downloaded()
 //	{
