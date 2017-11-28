@@ -218,10 +218,10 @@ public class Task {
 		return hour;
 	}	
 	
-	protected int getMinute()
+	protected void addMinute()
 	{
 		System.out.print("Minute(0-59): ");
-		minute = sc.nextInt();
+		int minute = sc.nextInt();
 		while(minute < 0 || minute > 59)
 		{
 			System.err.println("INVALID INPUT");
@@ -229,7 +229,17 @@ public class Task {
 			minute = sc.nextInt();
 		}
 		
-		return minute;
+		setMinute(minute);
+	}
+	
+	public void setMinute(int minute)
+	{
+		this.minute = minute;
+	}
+	
+	public int getMinute()
+	{
+		return this.minute;
 	}
 	
 	protected int minute()
