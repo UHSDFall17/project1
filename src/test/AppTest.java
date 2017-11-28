@@ -143,6 +143,26 @@ public class AppTest extends TestCase {
 		String result = test.getUsername();
 		assertEquals(expectation, result);
 	}
+
+	@Test
+	public void test_User_Set_Password()
+	{
+		User test = new User();
+		test.setUsername("TestSetPassword");		
+		String expectation = "TestSetPassword";
+		String result = test.getUsername();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_User_Get_Password()
+	{
+		User test = new User();
+		test.setUsername("TestGetPassword");		
+		String expectation = "TestGetPassword";
+		String result = test.getUsername();
+		assertEquals(expectation, result);
+	}
 		
 	@Test
 	public void test_Check_Corporate_Account()
@@ -177,6 +197,25 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 	
+	@Test
+	public void test_Student_Set_School_Name()
+	{
+		Student test = new Student();
+		test.setSchoolName("uh.edu");		
+		String expectation = "UH";
+		String result = test.getSchoolName();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_Student_Get_School_Name()
+	{
+		Student test = new Student();
+		test.setSchoolName("ut.edu");		
+		String expectation = "UT";
+		String result = test.getSchoolName();
+		assertEquals(expectation, result);
+	}
 //	@Test
 //	public void test_Returning_User_File_Downloaded()
 //	{
