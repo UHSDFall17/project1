@@ -12,7 +12,7 @@ public class User {
 	private String password="";
 	private String email = "";
 	public static String[] userName_passwords;
-	public static String[] usersTask;
+	protected String[] usersTask;
 	
 	
 	public String getUsername()
