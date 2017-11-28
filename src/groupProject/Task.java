@@ -154,18 +154,27 @@ public class Task {
 		return day;
 	}	
 	
-	protected int getYear()
+	protected void addYear()
 	{
 		System.out.print("Year: ");
-		year = sc.nextInt();
+		int year = sc.nextInt();
 		while(year < 2017)
 		{
 			System.err.println("YEAR CANNOT BE LESS THAN 2017");
 			System.out.println("Year: ");
 			year= sc.nextInt();
 		}
-		
-		return year;
+		setYear(year);
+	}
+	
+	public void setYear(int year)
+	{
+		this.year = year;
+	}
+	
+	public int getYear()
+	{
+		return this.year;
 	}
 	
 	protected int year()
@@ -221,7 +230,7 @@ public class Task {
 	
 	protected void setTime()
 	{
-		getYear();
+		addYear();
 		addMonth();
 		getDay(year, month);
 		getHour();
@@ -317,6 +326,4 @@ public class Task {
 			System.out.println("INDEX IS OUT OF RANGE");
 		}
 	}
-}
-        
- 
+}  

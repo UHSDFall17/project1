@@ -257,6 +257,26 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 	
+	@Test
+	public void test_List_Set_Year()
+	{
+		Task test = new Task();
+		test.setYear(2018);		
+		int expectation = 2018;
+		int result = test.getYear();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_List_Get_Year()
+	{
+		Task test = new Task();
+		test.setYear(2018);		
+		int expectation = 2018;
+		int result = test.getYear();
+		assertEquals(expectation, result);
+	}
+	
 //	@Test
 //	public void test_Returning_User_File_Downloaded()
 //	{
