@@ -12,7 +12,12 @@ public class Corporate {
 	
 	public Corporate(String username, String emailDomain){
 		this.username=username;
-		this.company = getCorpName(emailDomain);
+		setCorpName(emailDomain);
+	}
+	
+	public Corporate(){
+		this.username="UNKNOWN";
+		this.company = "UNKNOWN";
 	}
 	
 	public void CorporateGreetings()
@@ -69,9 +74,20 @@ public class Corporate {
 		AccountInformation.close();
 	}
 
-	private String getCorpName(String emailDomain)
+	public String getCorpName()
 	{
-		String corporationName =  emailDomain.substring(0, emailDomain.indexOf("."));
-		return corporationName.substring(0,1).toUpperCase() + corporationName.substring(1);
+		
+		return this.company;
+	}
+	
+	public void setCorpName(String emailDomain)
+	{
+		this.company =  emailDomain.substring(0, emailDomain.indexOf("."));
+		this.company = this.company.substring(0,1).toUpperCase() + this.company.substring(1);
+	}
+	
+	public String getSchoolName()
+	{
+		return this.company;
 	}
 }
