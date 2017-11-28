@@ -1,4 +1,6 @@
 package groupProject;
+import com.group1.project1.anyDont.Task;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -53,7 +55,7 @@ public class Main {
 		if(simpleAddList.size() > 1)
 		{
 			saveNewData();
-			AddNewDateToExistingList();
+			AddNewDataToExistingList();
 		}
 		scanner.close();
 	}
@@ -75,9 +77,12 @@ public class Main {
 		}
 		else if(accountType.equals("Student"))
 		{
-			System.out.println("debug " + domain);
+
+			System.out.println("DEBUG 5: domain = " + domain);
 			Student student = new Student(username, domain);
 			student.StudentGreetings();
+
+			System.out.println("DEBUG 7");
 		}
 		homePage();
 	}
@@ -131,6 +136,7 @@ public class Main {
 		
 		user.createUserFile();
 		user.amendCredentials();
+		domain = user.userDomain();
 		accountType = user.checkAccountType();
 		String usersProfile = username + ".txt";
 		usersTask = user.getUsersDate(usersProfile);
@@ -266,7 +272,7 @@ public class Main {
         }
 	}
 	
-	public static void AddNewDateToExistingList()
+	public static void AddNewDataToExistingList()
 	{
 		ArrayList<String> temp = new ArrayList<String>();
 		
@@ -370,5 +376,6 @@ public class Main {
         }
 	}
 }
+
 
 

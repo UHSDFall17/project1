@@ -1,6 +1,5 @@
 package groupProject;
-//Created by James Rodgers
-
+//created by James Rodgers
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -72,6 +71,8 @@ public class Corporate {
 
 	private String getCorpName(String emailDomain)
 	{
+		System.out.println("DEBUG EmailDomain in Corp is: " + emailDomain);
+		
 		String corporationName =  emailDomain.substring(0, emailDomain.indexOf("."));
 		return corporationName.substring(0,1).toUpperCase() + corporationName.substring(1);
 	}
