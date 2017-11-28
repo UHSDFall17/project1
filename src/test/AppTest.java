@@ -93,6 +93,25 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 
+	@Test
+	public void test_User_Get_Email()
+	{
+		User test = new User();
+		test.setUsername("testingGet@gmail.com");		
+		String expectation = "testingGet@gmail.com";
+		String result = test.getUsername();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_User_Set_Email()
+	{
+		User test = new User();
+		test.setUsername("testingSet@gmail.com");		
+		String expectation = "testingSet@gmail.com";
+		String result = test.getUsername();
+		assertEquals(expectation, result);
+	}
 	
 	@Test
 	public void test_User_Domain_Function()
@@ -115,7 +134,16 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 	
-	
+	@Test
+	public void test_User_Set_Username()
+	{
+		User test = new User();
+		test.setUsername("TestSetUsername");		
+		String expectation = "TestSetUsername";
+		String result = test.getUsername();
+		assertEquals(expectation, result);
+	}
+		
 	@Test
 	public void test_Check_Corporate_Account()
 	{
@@ -182,5 +210,5 @@ public class AppTest extends TestCase {
 //			userFileCreated = newUserVariable.createUserFile();
 //		}
 //		assertEquals(expectation, userFileCreated);
-//	}
+//	}	
 }
