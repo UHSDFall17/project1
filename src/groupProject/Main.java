@@ -77,12 +77,8 @@ public class Main {
 		}
 		else if(accountType.equals("Student"))
 		{
-
-			System.out.println("DEBUG 5: domain = " + domain);
 			Student student = new Student(username, domain);
 			student.StudentGreetings();
-
-			System.out.println("DEBUG 7");
 		}
 		homePage();
 	}

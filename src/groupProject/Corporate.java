@@ -71,8 +71,6 @@ public class Corporate {
 
 	private String getCorpName(String emailDomain)
 	{
-		System.out.println("DEBUG EmailDomain in Corp is: " + emailDomain);
-		
 		String corporationName =  emailDomain.substring(0, emailDomain.indexOf("."));
 		return corporationName.substring(0,1).toUpperCase() + corporationName.substring(1);
 	}

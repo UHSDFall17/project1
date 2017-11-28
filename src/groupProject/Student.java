@@ -23,7 +23,6 @@ public class Student {
 	
 	private String getSchoolName(String emailDomain)
 	{
-		System.out.println("DEBUG EmailDomain in school is: " + emailDomain);
 		String schoolName =  emailDomain.substring(0, emailDomain.indexOf("."));
 		return schoolName.toUpperCase();
 	}
