@@ -5,7 +5,12 @@ public class Student {
 	
 	public Student(String username, String emailDomain){
 		this.username=username;
-		this.schoolName = getSchoolName(emailDomain);
+		setSchoolName(emailDomain);
+	}
+	
+	public Student(){
+		this.username="UNKNOWN";
+		this.schoolName = "UNKNOWN";
 	}
 	
 	public void StudentGreetings()
@@ -21,9 +26,14 @@ public class Student {
 		}
 	}
 	
-	private String getSchoolName(String emailDomain)
+	public void setSchoolName(String emailDomain)
 	{
-		String schoolName =  emailDomain.substring(0, emailDomain.indexOf("."));
-		return schoolName.toUpperCase();
+		this.schoolName =  emailDomain.substring(0, emailDomain.indexOf("."));
+		this.schoolName = this.schoolName.toUpperCase();
+	}
+	
+	public String getSchoolName()
+	{
+		return this.schoolName;
 	}
 }
