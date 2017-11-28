@@ -1,4 +1,4 @@
-package com.group1.project1.anyDont;
+package groupProject;
 //Created James Rodgers
 import java.util.Random;
 
@@ -29,6 +29,9 @@ public class AppTest extends TestCase {
 			newUserVariable.amendCredentials();
 		}
 	}
+	
+	//add test for new prop function and student functions
+	
 	
 	@Test
 	public void test_new_User_has_unique_username()
@@ -97,6 +100,28 @@ public class AppTest extends TestCase {
 		returningUserVariable.setEmail("jrodger@intel.com");
 		
 		String expectation = "Corporate";
+		String result = returningUserVariable.checkAccountType();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_Check_Student_Account()
+	{
+		User returningUserVariable = new User();
+		returningUserVariable.setEmail("jrodgers@uh.edu");
+		
+		String expectation = "Student";
+		String result = returningUserVariable.checkAccountType();
+		assertEquals(expectation, result);
+	}
+	
+	@Test
+	public void test_Check_Regular_Account()
+	{
+		User returningUserVariable = new User();
+		returningUserVariable.setEmail("jrodgers@aol.com");
+		
+		String expectation = "Regular";
 		String result = returningUserVariable.checkAccountType();
 		assertEquals(expectation, result);
 	}
