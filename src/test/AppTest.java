@@ -337,6 +337,22 @@ public class AppTest extends TestCase {
 		assertEquals(expectation, result);
 	}
 	
+	@Test
+	public void test_Task_Is_Leap_Year()
+	{
+		Task test = new Task();	
+		boolean result = test.isLeapYear(2016);
+		assertTrue(result);
+	}
+	
+	@Test
+	public void test_Task_Is_Not_Leap_Year()
+	{
+		Task test = new Task();	
+		boolean result = test.isLeapYear(2017);
+		assertFalse(result);
+	}
+	
 //	@Test
 //	public void test_Returning_User_File_Downloaded()
 //	{
